@@ -6,6 +6,29 @@
     ViewData["Title"] = "ComplaintPage";
 }
 
-<h1>แตงอ่อน2</h1>
+<h1>แบบรับข้อร้องเรียนจากลูกค้า</h1>
+
+<form>
+    <div class="form-group">
+        <label asp-for="From_data"></label>
+        <input type="date" asp-for="From_data" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="From_name"></label>
+        <input type="text" asp-for="From_name" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Costomer_Id"></label>
+        <input type="text" asp-for="Costomer_Id" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="Product_Id"></label>
+        <input type="text" asp-for="Product_Id" class="form-control"/>
+    </div>
+    <div class="form-group">
+        <label asp-for="lot"></label>
+        <input type="date" asp-for="lot" class="form-control"/>
+    </div>
+</form>
 
 

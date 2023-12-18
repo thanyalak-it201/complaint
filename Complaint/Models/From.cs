@@ -8,6 +8,7 @@
         public virtual int CC_Id { get; set; }
         public virtual string? From_name { get; set; }
         public virtual int Costomer_Id { get; set; }
+        public virtual string? Product_Id { get; set; }
         public virtual string? lot { get; set; }
         public virtual int Problem_Id { get; set; }
         public virtual int number { get; set; }
