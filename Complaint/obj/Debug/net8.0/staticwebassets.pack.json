@@ -5,6 +5,30 @@
       "PackagePath": "staticwebassets\\Complaint.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\student.it\\source\\repos\\Complaint\\Complaint\\wwwroot\\assets\\css\\styles.css",
+      "PackagePath": "staticwebassets\\assets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\student.it\\source\\repos\\Complaint\\Complaint\\wwwroot\\assets\\js\\main.js",
+      "PackagePath": "staticwebassets\\assets\\js\\main.js"
+    },
+    {
+      "Id": "C:\\Users\\student.it\\source\\repos\\Complaint\\Complaint\\wwwroot\\assets\\scss\\base\\_base.scss",
+      "PackagePath": "staticwebassets\\assets\\scss\\base\\_base.scss"
+    },
+    {
+      "Id": "C:\\Users\\student.it\\source\\repos\\Complaint\\Complaint\\wwwroot\\assets\\scss\\components\\_sidebar.scss",
+      "PackagePath": "staticwebassets\\assets\\scss\\components\\_sidebar.scss"
+    },
+    {
+      "Id": "C:\\Users\\student.it\\source\\repos\\Complaint\\Complaint\\wwwroot\\assets\\scss\\config\\_variables.scss",
+      "PackagePath": "staticwebassets\\assets\\scss\\config\\_variables.scss"
+    },
+    {
+      "Id": "C:\\Users\\student.it\\source\\repos\\Complaint\\Complaint\\wwwroot\\assets\\scss\\styles.scss",
+      "PackagePath": "staticwebassets\\assets\\scss\\styles.scss"
+    },
+    {
       "Id": "C:\\Users\\student.it\\source\\repos\\Complaint\\Complaint\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

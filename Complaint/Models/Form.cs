@@ -18,22 +18,46 @@ using System.Linq.Expressions;
 
 namespace Complaint
 {
-    public partial class Costomer {
+    public partial class Form {
 
-        public Costomer()
+        public Form()
         {
             OnCreated();
         }
 
-        public virtual int CostomerId { get; set; }
+        public virtual int FromId { get; set; }
+
+        public virtual DateTime? FromData { get; set; }
+
+        public virtual int? ToId { get; set; }
+
+        public virtual int? CCId { get; set; }
+
+        public virtual string FromName { get; set; }
+
+        public virtual int? CostomerId { get; set; }
 
         public virtual string CostomerName { get; set; }
 
-        public virtual string Telephone { get; set; }
+        public virtual DateTime? Lot { get; set; }
 
-        public virtual string Address { get; set; }
+        public virtual int? ProblemId { get; set; }
 
-        public virtual string ProductId { get; set; }
+        public virtual int? Number { get; set; }
+
+        public virtual int? Price { get; set; }
+
+        public virtual string Co { get; set; }
+
+        public virtual int? TypeId { get; set; }
+
+        public virtual string Image { get; set; }
+
+        public virtual string Note { get; set; }
+
+        public virtual int? OperatorId { get; set; }
+
+        public virtual int? MgId { get; set; }
 
         #region Extensibility Method Definitions
 

@@ -1,13 +1,14 @@
-﻿using Complaint.Data;
+﻿using Complaint.Datas;
+using Complaint.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Complaint.Controllers
 {
     public class ComplaintController : Controller
     {
-        private readonly db_ComplaintModel _db;
+        private readonly ComplaintModel _db;
 
-        public ComplaintController(db_ComplaintModel db)
+        public ComplaintController(ComplaintModel db)
         {
             _db = db;
         }
