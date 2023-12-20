@@ -18,28 +18,24 @@ using System.Linq.Expressions;
 
 namespace Complain.Models
 {
-    public partial class VEmployee {
+    public partial class VCostomer {
 
-        public VEmployee()
+        public VCostomer()
         {
             OnCreated();
         }
 
-        public virtual int EmpId { get; set; }
+        public virtual int CostomerId { get; set; }
 
-        public virtual string EmpName { get; set; }
+        public virtual string? CostomerName { get; set; }
 
-        public virtual int DepartmentId { get; set; }
+        public virtual string? ProductId { get; set; }
 
-        public virtual string PositionName { get; set; }
+        public virtual string? ProductName { get; set; }
 
-        public virtual int SectionId { get; set; }
+        public virtual string? Telephone { get; set; }
 
-        public virtual string DepartmentName { get; set; }
-
-        public virtual int PositionId { get; set; }
-
-        public virtual string SectionName { get; set; }
+        public virtual string? Address { get; set; }
 
         #region Extensibility Method Definitions
 

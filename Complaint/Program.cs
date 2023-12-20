@@ -1,11 +1,12 @@
-using Complaint.Datas;
 using Microsoft.EntityFrameworkCore;
+using Complain.Data;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<ComplaintModel>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnect")));
+builder.Services.AddDbContext<Db_ComplaintModel>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnect")));
 
 var app = builder.Build();
 

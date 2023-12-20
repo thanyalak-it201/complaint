@@ -2,7 +2,24 @@
 <EntityDeveloper Version="6.8.1019.0">
   <ModelSettings xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ConnectionStringInAppConfig="False" TargetFramework="Net50" DetectManyToManyAssociations="False" DetectTPTInheritance="False" EntityFrameworkCoreVersion="Version5" DetectFunctionBasedColumnDefault="True">
     <Connection ConnectionString="Data Source=IT201;Initial Catalog=Db_Complaint;Integrated Security=True;Persist Security Info=False;Password=" Provider="System.Data.SqlClient" />
-    <Generation />
+    <Generation>
+      <GeneratedFiles>
+        <File Name="ComplaintModel.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Data" />
+        <File Name="Costomer.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="Department.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="Employee.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="Form.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="Manager.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="Position.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="Problem.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="Product.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="Section.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="TypeFrom.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="VEmployee.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="VCostomer.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+        <File Name="VForm.cs" DestinationFolder="C:\Users\student.it\source\repos\Complaint\Complaint\Models" />
+      </GeneratedFiles>
+    </Generation>
     <DatabaseFirstNamingRules>
       <EntitySet PluralizationName="Pluralize" />
       <Class UseSchemaAsPrefix="False" PluralizeCollectionNavigationPropertyName="True" AddConstraintColumnsToNavigationPropertyName="False" RemoveUnderscores="True" AddUnderscores="False" RemoveInvalidCharacters="True" CodeCase="FirstLetterUppercase" AddPrefix="" AddSuffix="" RemovePrefixes="" RemoveSuffixes="" PluralizationName="Singularize" />
