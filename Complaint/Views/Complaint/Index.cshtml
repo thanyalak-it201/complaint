@@ -1,4 +1,4 @@
-﻿@model Form;
+﻿@model Complain.Models.Form;
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -15,13 +15,13 @@
         <form method="post" class="card-body" asp-controller="Complaint" asp-action="Create">
             <h6>กรุณาเลือก</h6>
             <div class="btn-group rounded-pill" role="group" aria-label="Basic radio toggle button group">
-                <input asp-for="TypeId" type="radio" class="btn-check" name="btnradio" id="btnradio1" checked />
+                <input asp-for="TypeId" type="text" class="btn-check" name="btnradio" id="btnradio1" checked />
                 <label asp-for="TypeId" class="btn btn-outline-primary" for="btnradio1">เสนอแนะ</label>
 
-                <input asp-for="TypeId" type="radio" class="btn-check" name="btnradio" id="btnradio2" />
+                <input asp-for="TypeId" type="text" class="btn-check" name="btnradio" id="btnradio2" />
                 <label asp-for="TypeId" class="btn btn-outline-primary" for="btnradio2">Complaint</label>
 
-                <input asp-for="TypeId" type="radio" class="btn-check" name="btnradio" id="btnradio3" />
+                <input asp-for="TypeId" type="text" class="btn-check" name="btnradio" id="btnradio3" />
                 <label asp-for="TypeId" class="btn btn-outline-primary" for="btnradio3">Claim</label>
             </div>
             <hr class="my-4 mx-n4" />
@@ -33,19 +33,19 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="ToId" for="roundedInput" class="form-label">เรียน</label>
-                        <input asp-for="ToId" type="text" id="roundedInput" class="form-control rounded-pill"/>
+                        <label asp-for="ToId" for="ToId" class="form-label">เรียน</label>
+                        <input asp-for="ToId" type="text" class="form-control rounded-pill"/>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="CCId" for="roundedInput" class="form-label">สำเนาถึง</label>
-                        <input asp-for="CCId" type="text" id="roundedInput" class="form-control rounded-pill"/>
+                        <label asp-for="CCId" for="CCId" class="form-label">สำเนาถึง</label>
+                        <input asp-for="CCId" type="text" class="form-control rounded-pill"/>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="FromName" for="roundedInput" class="form-label">เรื่อง</label>
+                        <label asp-for="FromName" for="FromName" class="form-label">เรื่อง</label>
                         <input asp-for="FromName" type="text" id="roundedInput" class="form-control rounded-pill" placeholder="กรุณากรอกเรื่องที่ร้องเรียน" />
                     </div>
                 </div>
@@ -55,56 +55,58 @@
             <div class="row g-3">
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="CostomerId" for="roundedInput" class="form-label">รหัสลูกค้า</label>
-                        <input asp-for="CostomerId" type="text" id="roundedInput" class="form-control rounded-pill" placeholder="กรุณากรอกรหัสลูกค้า" />
-                    </div>
-                </div>
-                @* <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="CostomerName" for="roundedInput" class="form-label">ชื่อลูกค้า</label>
-                        <input asp-for="CostomerName" type="text" id="roundedInput" class="form-control rounded-pill" />
-                    </div>
-                </div> *@
-                @* <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="ProductId" for="roundedInput" class="form-label">รหัสสินค้า</label>
-                        <input asp-for="ProductId" type="text" id="roundedInput" class="form-control rounded-pill"/>
+                        <label asp-for="CostomerId" for="CostomerId" class="form-label">รหัสลูกค้า</label>
+                        <select asp-for="CostomerId" type="text" id="select-Ctm" asp-items="ViewBag.ListCostomer" class="form-control rounded-pill" requireds>
+                            <option>เลือก</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="Product_name" for="roundedInput" class="form-label">ชื่อสินค้า</label>
-                        <input asp-for="Product_name" type="text" id="roundedInput" class="form-control rounded-pill"/>
-                    </div>
-                </div> *@
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="Lot" for="roundedInput" class="form-label">กรุณากรอกวันที่ผลิตสินค้า</label>
-                        <input asp-for="Lot" type="date" id="roundedInput" class="form-control rounded-pill" />
+                        <label class="form-label">ชื่อลูกค้า</label>
+                        <input type="text" id="txtcostomername" class="form-control rounded-pill" disabled />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="ProblemId" for="roundedInput" class="form-label">ปัญหาที่พบ</label>
-                        <input asp-for="ProblemId" type="text" id="roundedInput" class="form-control rounded-pill" />
+                        <label class="form-label">รหัสสินค้า</label>
+                        <input type="text" id="txtproductid" class="form-control rounded-pill" disabled />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="Number" for="roundedInput" class="form-label">จำนวน</label>
-                        <input asp-for="Number" type="text" id="roundedInput" class="form-control rounded-pill" placeholder="กรุณากรอกจำนวนสินค้า" />
+                        <label class="form-label">ชื่อสินค้า</label>
+                        <input type="text" id="txtproductname" class="form-control rounded-pill" disabled />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="Price" for="roundedInput" class="form-label">มูลค่าความเสียหาย</label>
-                        <input asp-for="Price" type="text" id="roundedInput" class="form-control rounded-pill" placeholder="มูลค่าความเสียหาย" />
+                        <label asp-for="Lot" for="Lot" class="form-label">กรุณากรอกวันที่ผลิตสินค้า</label>
+                        <input asp-for="Lot" type="date" class="form-control rounded-pill" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="Price" for="roundedInput" class="form-label">มูลค่าความเสียหาย</label>
-                        <input asp-for="Price" type="text" id="roundedInput" class="form-control rounded-pill" placeholder="มูลค่าความเสียหาย" />
+                        <label asp-for="ProblemId" for="ProblemId" class="form-label">ปัญหาที่พบ</label>
+                        <input asp-for="ProblemId" type="text" class="form-control rounded-pill" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="Number" for="Number" class="form-label">จำนวน</label>
+                        <input asp-for="Number" type="text" class="form-control rounded-pill" placeholder="กรุณากรอกจำนวนสินค้า" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="Price" for="Price" class="form-label">มูลค่าความเสียหาย</label>
+                        <input asp-for="Price" type="text" class="form-control rounded-pill" placeholder="มูลค่าความเสียหาย" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">แนบไฟล์</label>
+                        <input class="form-control" type="file" id="formFile"/>
                     </div>
                 </div>
             </div>
@@ -114,8 +116,7 @@
             </div>
         </form>
     </div>
-
-</body
+</body>
 
 @section Scripts {
     
@@ -126,16 +127,15 @@
         $(function () {
             $("#select-Ctm").change(function () {
                 $.post("/Complaint/Customerselect",
-                    { CostomerID: $(this).val() },
+                    { CostomerId: $(this).val() },
                     function (response) {
-                        $("#txtCostomerName").val(response.)
-                        $("#txtProductId").val(response.)
-                        $("#txtProductName").val(response.)
+                        $("#txtcostomername").val(response.costomerName)
+                        $("#txtproductname").val(response.productName)
+                        $("#txtproductid").val(response.productId)
                     }
                  );
             });
         });
-
     </script>
 }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <efcore context-namespace="Complain.Data" namespace="Complain.Models" p1:name="Db_ComplaintModel" p1:Guid="11966db0-2006-4e8a-8a54-26ffb1f8ee30" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
   <class name="Costomer" entity-set="Costomers" table="Costomer" schema="dbo" p1:Guid="a87a10cb-44a7-4651-a3c3-9092b15b2870">
-    <id name="CostomerId" type="Int32" p1:ValidateRequired="true" p1:Guid="dd2cfafd-c0b5-4a01-9b4d-fbc092557977">
-      <column name="Costomer_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="CostomerId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="dd2cfafd-c0b5-4a01-9b4d-fbc092557977">
+      <column name="Costomer_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
     <property name="CostomerName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="d1e9fd25-63e2-47a8-9614-29bb5ff7d6f7">
       <column name="Costomer_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -29,8 +29,8 @@
     </property>
   </class>
   <class name="Employee" entity-set="Employees" table="Employee" schema="dbo" p1:Guid="ef5533f6-c9bb-4592-8391-f7d99271c140">
-    <id name="EmpId" type="Int32" p1:ValidateRequired="true" p1:Guid="d2483456-b3e7-487a-9d80-aa7866f7436e">
-      <column name="Emp_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="EmpId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="d2483456-b3e7-487a-9d80-aa7866f7436e">
+      <column name="Emp_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
     <property name="EmpName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="37beab69-1903-4049-b75e-944cf202cb30">
       <column name="Emp_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -61,8 +61,8 @@
     <property name="FromName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="3b833c86-c246-4b06-a3c2-33d96b7dede7">
       <column name="From_name" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
-    <property name="CostomerId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9abdd93d-3040-4c64-8a3d-cbdd4c769f95">
-      <column name="Costomer_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <property name="CostomerId" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="9abdd93d-3040-4c64-8a3d-cbdd4c769f95">
+      <column name="Costomer_Id" not-null="False" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </property>
     <property name="Lot" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="bce88cd4-5382-44b4-9dc5-5df085590e6b">
       <column name="lot" not-null="False" sql-type="date" p1:unicode="False" />
@@ -147,8 +147,8 @@
     </property>
   </class>
   <class name="VEmployee" entity-set="VEmployees" table="VEmployee" schema="dbo" p1:Guid="d05cbb77-c0b9-46c3-9815-79eba7654cf8">
-    <id name="EmpId" type="Int32" p1:ValidateRequired="true" p1:Guid="993e3a70-a6fe-4167-b496-41ff30fb6924">
-      <column name="Emp_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="EmpId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="993e3a70-a6fe-4167-b496-41ff30fb6924">
+      <column name="Emp_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
     <property name="EmpName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="bd26c645-7fe9-4ad8-8b7c-06c569826ab3">
       <column name="Emp_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -173,8 +173,8 @@
     </property>
   </class>
   <class name="VCostomer" entity-set="VCostomers" table="VCostomer" schema="dbo" p1:Guid="0f98484c-205f-405b-b578-73c08f2e8579">
-    <id name="CostomerId" type="Int32" p1:ValidateRequired="true" p1:Guid="eb33ca63-445b-43ea-b13a-0958064d35a3">
-      <column name="Costomer_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="CostomerId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="eb33ca63-445b-43ea-b13a-0958064d35a3">
+      <column name="Costomer_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
     <property name="CostomerName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="9aa3a81d-bea9-47a5-8237-707da20706b5">
       <column name="Costomer_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -278,4 +278,22 @@
       <column name="Mng_mail" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
   </class>
+  <associations>
+    <association name="Costomer_Form" cardinality="OneToMany" p1:Guid="ffb1bd0f-6058-460c-85b0-39cbefe7ccbd">
+      <end1 multiplicity="ZeroOrOne" name="Costomer" class="Form" relation-class="Costomer" constrained="True" lazy="False" p1:Guid="11572bd6-a6ee-4e31-a6d1-8a46246986d3">
+        <property name="CostomerId" />
+      </end1>
+      <end2 multiplicity="Many" name="Forms" class="Costomer" relation-class="Form" lazy="False" p1:Guid="792708ef-9913-4bf9-b391-c2bd8cec6ddb">
+        <property name="CostomerId" />
+      </end2>
+    </association>
+    <association name="TypeFrom_Form" cardinality="OneToMany" p1:Guid="c49abfe8-781c-4733-b4c1-35bef2eb5959">
+      <end1 multiplicity="ZeroOrOne" name="TypeFrom" class="Form" relation-class="TypeFrom" constrained="True" lazy="False" p1:Guid="409781d1-8062-4d36-b48c-71b65fdefef5">
+        <property name="TypeId" />
+      </end1>
+      <end2 multiplicity="Many" name="Forms" class="TypeFrom" relation-class="Form" lazy="False" p1:Guid="680a9a90-6da4-472a-9ec1-da2a65fbe802">
+        <property name="TypeId" />
+      </end2>
+    </association>
+  </associations>
 </efcore>
