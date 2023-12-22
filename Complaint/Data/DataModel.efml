@@ -67,8 +67,8 @@
     <property name="Lot" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="bce88cd4-5382-44b4-9dc5-5df085590e6b">
       <column name="lot" not-null="False" sql-type="date" p1:unicode="False" />
     </property>
-    <property name="ProblemId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b921d14b-54b5-4593-a6d4-1303a647491d">
-      <column name="Problem_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <property name="ProblemName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="3a9a1fc6-0c30-484c-9de8-707329907ce7">
+      <column name="Problem_name" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
     <property name="Number" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="1f855db1-586f-4b62-be02-9fc91e11734b">
       <column name="number" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
@@ -79,8 +79,8 @@
     <property name="Co" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="0b377d53-9ec1-4332-8a35-9cdffa523f83">
       <column name="Co" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
     </property>
-    <property name="TypeId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2f61fc1a-1d3a-4415-98cc-a9d55d402b0f">
-      <column name="Type_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <property name="TypeName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="c7435405-fbb6-4128-84ff-a664b457772b">
+      <column name="Type_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
     </property>
     <property name="Image" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="baf94f4d-2be1-4c7b-ba4a-6bab33b414a7">
       <column name="Image" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -115,10 +115,10 @@
     </property>
   </class>
   <class name="Problem" entity-set="Problems" table="Problem" schema="dbo" p1:Guid="1d15e82b-35b3-4a6e-b1cf-2781644e816e">
-    <id name="ProblemId" type="Int32" p1:ValidateRequired="true" p1:Guid="8cf82fc0-7a7d-4487-a6ea-fbb3343a34dd">
-      <column name="Problem_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="ProblemId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="8cf82fc0-7a7d-4487-a6ea-fbb3343a34dd">
+      <column name="Problem_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
-    <property name="ProblemName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="adf170cb-d5c2-48a3-9d47-4bb81852a632">
+    <property name="ProblemName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="adf170cb-d5c2-48a3-9d47-4bb81852a632">
       <column name="Problem_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
     </property>
   </class>
@@ -139,8 +139,8 @@
     </property>
   </class>
   <class name="TypeFrom" entity-set="TypeFroms" table="`Type From`" schema="dbo" p1:Guid="a5682817-0fdf-4429-b2d1-6d1ce8a53c10">
-    <id name="TypeId" type="Int32" p1:ValidateRequired="true" p1:Guid="8b74f849-a706-464b-84f1-46174d6d47bc">
-      <column name="Type_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="TypeId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="8b74f849-a706-464b-84f1-46174d6d47bc">
+      <column name="Type_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
     <property name="TypeName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="9dd788be-ce3e-4f76-bfa7-65c49a00c575">
       <column name="Type_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -202,8 +202,8 @@
     <property name="FromName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="25db723d-ce04-488e-a914-6377ed1e9483">
       <column name="From_name" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
-    <property name="CostomerId" type="Int32" p1:ValidateRequired="true" p1:Guid="838419f6-4655-4062-8a90-e37c6c5f8ab9">
-      <column name="Costomer_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <property name="CostomerId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="838419f6-4655-4062-8a90-e37c6c5f8ab9">
+      <column name="Costomer_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </property>
     <property name="CostomerName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="ffa766d7-ac67-4c6f-a1bb-10c19b886e9b">
       <column name="Costomer_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -217,10 +217,10 @@
     <property name="Lot" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d813d224-50d8-491d-a5a1-11fafe2f658f">
       <column name="lot" not-null="False" sql-type="date" p1:unicode="False" />
     </property>
-    <property name="ProblemId" type="Int32" p1:ValidateRequired="true" p1:Guid="85cb0166-d875-4e1e-819a-3cda19f5c84d">
-      <column name="Problem_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <property name="ProblemId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="85cb0166-d875-4e1e-819a-3cda19f5c84d">
+      <column name="Problem_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </property>
-    <property name="ProblemName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="36835a5a-b5ce-49b9-82bd-0ffd9f36545a">
+    <property name="ProblemName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="36835a5a-b5ce-49b9-82bd-0ffd9f36545a">
       <column name="Problem_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
     </property>
     <property name="Number" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ff018157-0fe1-4652-bc50-470849fe5838">
@@ -244,8 +244,8 @@
     <property name="Note" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="40c58c9d-5ab0-48d0-ba37-1fe93b16b5a2">
       <column name="Note" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
-    <property name="EmpId" type="Int32" p1:ValidateRequired="true" p1:Guid="3dcfda13-345b-48ce-a412-f3449e268cdc">
-      <column name="Emp_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <property name="EmpId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="3dcfda13-345b-48ce-a412-f3449e268cdc">
+      <column name="Emp_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </property>
     <property name="EmpName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="99025c68-9a42-45e2-bf91-18003df62b96">
       <column name="Emp_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -277,6 +277,9 @@
     <property name="MngMail" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8e4d325f-7e75-4b81-96f2-af870902910c">
       <column name="Mng_mail" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
+    <property name="Expr1" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="5055dacc-60a1-4254-a73e-988c650cffd8">
+      <column name="Expr1" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
   </class>
   <associations>
     <association name="Costomer_Form" cardinality="OneToMany" p1:Guid="ffb1bd0f-6058-460c-85b0-39cbefe7ccbd">
@@ -287,12 +290,20 @@
         <property name="CostomerId" />
       </end2>
     </association>
-    <association name="TypeFrom_Form" cardinality="OneToMany" p1:Guid="c49abfe8-781c-4733-b4c1-35bef2eb5959">
-      <end1 multiplicity="ZeroOrOne" name="TypeFrom" class="Form" relation-class="TypeFrom" constrained="True" lazy="False" p1:Guid="409781d1-8062-4d36-b48c-71b65fdefef5">
+    <association name="Form_Form" cardinality="OneToOne" p1:Guid="e7795a62-817c-4215-9998-74d556351ffe">
+      <end1 multiplicity="One" name="Form_FromId" class="Form" relation-class="Form" constrained="True" lazy="False" p1:Guid="a72a69f5-1734-41b0-ac13-6ce390cf184c">
+        <property name="FromId" />
+      </end1>
+      <end2 multiplicity="One" name="Form_FromId1" class="Form" relation-class="Form" constrained="False" lazy="False" p1:Guid="78ed7b90-0fc0-4077-aaac-5b14e96ebbec">
+        <property name="FromId" />
+      </end2>
+    </association>
+    <association name="TypeFrom_Form" cardinality="OneToMany" p1:Guid="8789f636-5078-4833-ae4c-119d83af3a9c">
+      <end1 multiplicity="ZeroOrOne" name="TypeFrom" class="Form" relation-class="TypeFrom" constrained="True" lazy="False" p1:Guid="b355c4e3-e83a-40b8-bdee-be47bab0e9b1">
         <property name="TypeId" />
       </end1>
-      <end2 multiplicity="Many" name="Forms" class="TypeFrom" relation-class="Form" lazy="False" p1:Guid="680a9a90-6da4-472a-9ec1-da2a65fbe802">
-        <property name="TypeId" />
+      <end2 multiplicity="Many" name="Forms" class="TypeFrom" relation-class="Form" lazy="False" p1:Guid="14d62c74-b24a-4bbd-afbc-b150f4ed72b6">
+        <property name="TypeName" />
       </end2>
     </association>
   </associations>

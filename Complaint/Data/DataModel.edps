@@ -124,44 +124,5 @@
       </Template>
     </Templates>
     <AttributeAssemblies />
-    <UpdateFromDatabaseExcludes>
-      <Exclude Name="Costomer_Id" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Costomer_name" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Product_Id" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Product_name" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Telephone" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Address" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="From_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="From_data" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="From_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Costomer_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Costomer_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Product_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Product_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="lot" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Problem_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Problem_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="number" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Price" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Co" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Type_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Type_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Image" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Note" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Emp_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Emp_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="department_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="department_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="section_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="section_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="position_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="position_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Mng_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Mng_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Mng_mail" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="PK_VCostomer" Table="dbo.VCostomer" Type="Constraint" />
-      <Exclude Name="PK_VEmployee" Table="dbo.VEmployee" Type="Constraint" />
-      <Exclude Name="PK_VForm" Table="dbo.VForm" Type="Constraint" />
-    </UpdateFromDatabaseExcludes>
   </ModelSettings>
 </EntityDeveloper>

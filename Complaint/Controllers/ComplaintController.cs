@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Complain.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Options;
 
 namespace Complaint.Controllers
 {
@@ -21,6 +22,12 @@ namespace Complaint.Controllers
             //List = _db.VCostomers.ToList();
             ViewBag.ListCostomer = new SelectList(List, "CostomerId", "CostomerId");
 
+            List<Problem> data = _db.Problems.ToList();
+            ViewBag.ListProblem = new SelectList(data, "ProblemId", "ProblemName" );
+
+            List<Manager> dataMng = _db.Managers.ToList();
+            ViewBag.ListManager = new SelectList(dataMng, "MngId", "MngName");
+
             return View();
         }
 
@@ -31,9 +38,13 @@ namespace Complaint.Controllers
             return Json(result);
         }
 
-        public IActionResult Edit()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Form obj)
         {
-            return View();
+            _db.Forms.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

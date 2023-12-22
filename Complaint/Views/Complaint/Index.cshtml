@@ -1,12 +1,7 @@
 ﻿@model Complain.Models.Form;
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
 @{
     ViewData["Title"] = "ComplaintPage";
 }
-<!DOCTYPE html>
-
 
 <body>
 
@@ -14,16 +9,20 @@
         <h5 class="card-header">แบบรับข้อร้องเรียนจากลูกค้า</h5>
         <form method="post" class="card-body" asp-controller="Complaint" asp-action="Create">
             <h6>กรุณาเลือก</h6>
-            <div class="btn-group rounded-pill" role="group" aria-label="Basic radio toggle button group">
-                <input asp-for="TypeId" type="text" class="btn-check" name="btnradio" id="btnradio1" checked />
-                <label asp-for="TypeId" class="btn btn-outline-primary" for="btnradio1">เสนอแนะ</label>
+            <center>
+                <div class="col-md-10">
+                    <div class="btn-group col-12 rounded" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" id="btnradio1" />
+                        <label class="btn btn-outline-primary" for="btnradio1">เสนอแนะ</label>
 
-                <input asp-for="TypeId" type="text" class="btn-check" name="btnradio" id="btnradio2" />
-                <label asp-for="TypeId" class="btn btn-outline-primary" for="btnradio2">Complaint</label>
+                        <input type="radio" class="btn-check" id="btnradio2" checked/>
+                        <label class="btn btn-outline-primary" for="btnradio2">Complaint</label>
 
-                <input asp-for="TypeId" type="text" class="btn-check" name="btnradio" id="btnradio3" />
-                <label asp-for="TypeId" class="btn btn-outline-primary" for="btnradio3">Claim</label>
-            </div>
+                        <input type="radio" class="btn-check" id="btnradio3"/>
+                        <label class="btn btn-outline-primary" for="btnradio3">Claim</label>
+                    </div>
+                </div>
+            </center>
             <hr class="my-4 mx-n4" />
             <h6>ขั้นตอนที่ 1</h6>
             <div class="row g-3">
@@ -32,15 +31,19 @@
                     <input asp-for="FromData" type="date" id="roundedInput" class="form-control rounded-pill" />
                 </div>
                 <div class="col-md-6">
-                    <div class="mt-2">
+                    <div class="mt">
                         <label asp-for="ToId" for="ToId" class="form-label">เรียน</label>
-                        <input asp-for="ToId" type="text" class="form-control rounded-pill"/>
+                        <select asp-for="ToId" asp-items="ViewBag.ListManager" type="text" class="select2 form-select rounded-pill">
+                            <option>เลือก</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
                         <label asp-for="CCId" for="CCId" class="form-label">สำเนาถึง</label>
-                        <input asp-for="CCId" type="text" class="form-control rounded-pill"/>
+                        <select asp-for="CCId" asp-items="ViewBag.ListManager" type="text" class="select2 form-select rounded-pill">
+                            <option>เลือก</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -56,7 +59,7 @@
                 <div class="col-md-6">
                     <div class="mt-2">
                         <label asp-for="CostomerId" for="CostomerId" class="form-label">รหัสลูกค้า</label>
-                        <select asp-for="CostomerId" type="text" id="select-Ctm" asp-items="ViewBag.ListCostomer" class="form-control rounded-pill" requireds>
+                        <select asp-for="CostomerId" type="text" id="select-Ctm" asp-items="ViewBag.ListCostomer" class="select2 form-select rounded-pill" requireds>
                             <option>เลือก</option>
                         </select>
                     </div>
@@ -87,32 +90,62 @@
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
-                        <label asp-for="ProblemId" for="ProblemId" class="form-label">ปัญหาที่พบ</label>
-                        <input asp-for="ProblemId" type="text" class="form-control rounded-pill" />
+                        <label asp-for="ProblemName" for="ProblemName" class="form-label">ปัญหาที่พบ</label>
+                        <select asp-for="ProblemName" asp-items="ViewBag.ListProblem" class="select2 form-select rounded-pill">
+                            <option>เลือก</option>
+                        </select>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
                         <label asp-for="Number" for="Number" class="form-label">จำนวน</label>
-                        <input asp-for="Number" type="text" class="form-control rounded-pill" placeholder="กรุณากรอกจำนวนสินค้า" />
+                        <input asp-for="Number" type="number" class="form-control rounded-pill" placeholder="กรุณากรอกจำนวนสินค้า" />
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="mt-2">
                         <label asp-for="Price" for="Price" class="form-label">มูลค่าความเสียหาย</label>
-                        <input asp-for="Price" type="text" class="form-control rounded-pill" placeholder="มูลค่าความเสียหาย" />
+                        <input asp-for="Price" type="number" class="form-control rounded-pill" placeholder="มูลค่าความเสียหาย" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="mt-2">
+                        <label asp-for="Note" for="Note" class="form-label">รายละเอียดเพิ่มเติม</label>
+                        <input asp-for="Note" type="text" id="bootstrap-maxlength-example2" rows="3" maxlength="255" class="form-control rounded-pill" />
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">แนบไฟล์</label>
-                        <input class="form-control" type="file" id="formFile"/>
+                    <div class="mb-auto">
+                        <label asp-for = "Image" for="formFile" class="form-label">แนบไฟล์</label>
+                        <input asp-for="Image" class="form-control rounded-pill" type="file" id="formFile" />
                     </div>
                 </div>
             </div>
-            <div class="pt-4">
-                <button type="submit" class="btn btn-primary me-sm-3 me-1">Submit</button>
-                <button type="reset" class="btn btn-label-secondary">Cancel</button>
+
+            <!-- Button trigger modal -->
+            <center>
+                <div class="pt-4">
+                    <button type="button" class="btn btn-primary me-sm-3 me-1" data-toggle="modal" data-target="#exampleModalCenter">
+                        บันทึกข้อมูล
+                    </button>
+                </div>
+            </center>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;System</h5>
+                        </div>
+                        <div class="modal-body" style="text-align: center;">
+                            คุณต้องการบันทึกข้อมูลใช่หรือไม่ โปรดกดปุ่มยืนยันค่ะ
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" class="btn btn-success btn-sm">ยืนยัน</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
