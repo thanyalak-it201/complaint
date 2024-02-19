@@ -1,0 +1,81 @@
+﻿@model Complain.Models.User;
+@{
+    Layout = null;
+}
+@{
+    ViewData["Title"] = "LoginPage";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('../img/Welcome8.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        form {
+            width: 30%;
+            padding: 5%;
+        }
+
+            form > div {
+                margin-bottom: 15px;
+            }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .rounded-pill {
+            border-radius: 20px;
+        }
+
+        .submit-btn {
+            width: 20%;
+            padding: 2%;
+            border-radius: 20px;
+            background-color: #d0e3ff;
+            color: black;
+            cursor: pointer;
+        }
+
+            .submit-btn:hover {
+                background-color: #7096d1;
+            }
+    </style>
+</head>
+<body>
+    <form method="post" asp-controller="Account" asp-action="Login">
+        <div>
+            <label asp-for="Email" for="Email" class="form-label">Email</label>
+            <input asp-for="Email" type="Email" name="Email" class="form-control rounded-pill" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Password" for="Password" class="form-label">Password</label>
+            <input asp-for="Password" type="Password" name="Password" class="form-control rounded-pill" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <canter>
+            <button value="Login" type="submit" class="submit-btn">Login</button>
+        </canter>
+    </form>
+</body>
+</html>

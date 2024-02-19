@@ -1,7 +1,207 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Complain.Models.Form;
 @{
+    ViewData["Title"] = "Edit Form Page";
+}
+<div class="container">
+<div class="padding">
+    <h2>Edit</h2>
+    <p>แบบรับข้อร้องเรียนจากลูกค้า</p>
+    <div>
+        <form method="post" asp-controller="Complaint" asp-action="Update" enctype="multipart/form-data">
+            <input type="hidden" asp-for="StatusId" value="0"/>
+            <input type="text" asp-for="FromId" class="form-control rounded-pill"/>
+            <div id="RadioButtonGroup" class=" col-md-12" role="group" aria-label="Basic checkbox toggle button group">
+                @Html.RadioButton("TypeId", 1)
+                <label>เสนอแนะ</label>
+                @Html.RadioButton("TypeId", 2)
+                <label>Complaint</label>
+                @Html.RadioButton("TypeId", 3)
+                <label>Claim</label>
+            </div>
+            <br />
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="FromData" for="roundedInput" class="form-label">กรุณากรอกวันที่ยื่นเรื่อง</label>
+                    <input asp-for="FromData" type="date" id="roundedInput" class="form-control rounded-pill" />
+                </div>
+                <div class="col-md-6">
+                    <div class="mt">
+                        <label asp-for="ToId" for="ToId" class="form-label">เรียน</label>
+                        <select asp-for="ToId" asp-items="ViewBag.ListManager" type="text" class="select2 form-select rounded-pill">
+                            <option>เลือก</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="CCId" for="CCId" class="form-label">สำเนาถึง</label>
+                        <select asp-for="CCId" asp-items="ViewBag.ListManager" type="text" class="select2 form-select rounded-pill">
+                            <option>เลือก</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="FromName" for="FromName" class="form-label">เรื่อง</label>
+                        <input asp-for="FromName" type="text" id="roundedInput" class="form-control rounded-pill" placeholder="กรุณากรอกเรื่องที่ร้องเรียน" />
+                    </div>
+                </div>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="CostomerId" for="CostomerId" class="form-label">รหัสลูกค้า</label>
+                        <select asp-for="CostomerId" asp-items="ViewBag.ListCostomer" type="text" id="select-Ctm" class="select2 form-select rounded-pill" requireds>
+                            <option>เลือก</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label class="form-label">ชื่อลูกค้า</label>
+                        <input type="text" id="txtcostomername" class="form-control rounded-pill" disabled value="@ViewBag.costomername" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label class="form-label">รหัสสินค้า</label>
+                        <input type="text" id="txtproductid" class="form-control rounded-pill" disabled value="@ViewBag.productid" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label class="form-label">ชื่อสินค้า</label>
+                        <input type="text" id="txtproductname" class="form-control rounded-pill" disabled value="@ViewBag.productname" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="Lot" for="Lot" class="form-label">กรุณากรอกวันที่ผลิตสินค้า</label>
+                        <input asp-for="Lot" type="date" class="form-control rounded-pill" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="ProblemId" for="ProblemId" class="form-label">กลุ่มปัญหาที่พบ</label>
+                        <select asp-for="ProblemId" asp-items="ViewBag.ListProblem" class="select2 form-select rounded-pill">
+                            <option></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="ProblemOthet" for="ProblemOthet" class="form-label">อื่นๆโปรดระบุ</label>
+                        <input asp-for="ProblemOthet" type="text" class="form-control rounded-pill" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="Number" for="Number" class="form-label">จำนวน</label>
+                        <input asp-for="Number" type="number" class="form-control rounded-pill" placeholder="กรุณากรอกจำนวนสินค้า" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt-2">
+                        <label asp-for="Price" for="Price" class="form-label">มูลค่าความเสียหาย</label>
+                        <input asp-for="Price" type="number" class="form-control rounded-pill" placeholder="มูลค่าความเสียหาย" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="mt-2">
+                        <label asp-for="Note" for="Note" class="form-label">รายละเอียดเพิ่มเติม</label>
+                        <input asp-for="Note" type="text" id="bootstrap-maxlength-example2" rows="3" maxlength="255" class="form-control rounded-pill" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mt">
+                        <label asp-for="Co" for="Co" class="form-label">CO(ถ้ามี)</label>
+                        <input asp-for="Co" type="text" id="bootstrap-maxlength-example2" class="form-control rounded-pill" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-auto">
+                        <label asp-for="Image" for="Image" class="form-label">แนบไฟล์</label>
+                        <input asp-for="Image" class="form-control rounded-pill" type="file" name="file" />
+                    </div>
+                </div>
+                <div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-auto">
+                        <label asp-for="UserId" for="UserId" class="form-label">ผู้ดำเนินการ</label>
+                        <select asp-for="UserId" asp-items="ViewBag.ListUser" class="select2 form-select rounded-pill">
+                            <option>เลือก</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-auto">
+                        <label asp-for="MgId" for="MgId" class="form-label">ผู้อนุมัติ</label>
+                        <select asp-for="MgId" asp-items="ViewBag.ListManager" class="select2 form-select rounded-pill">
+                            <option>เลือก</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button trigger modal -->
+            <div class="row">
+                <div class="col">
+                    <a asp-controller="Complaint" asp-action="Index" class="btn btn-secondary">
+                        ยกเลิก
+                    </a>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModalCenter">
+                        แก้ไขข้อมูล
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;System</h5>
+                        </div>
+                        <div class="modal-body" style="text-align: center;">
+                            <i class="fa fa-exclamation-triangle text-info" aria-hidden="true"></i>&nbsp;คุณต้องการแก้ไขข้อมูลใช่หรือไม่ โปรดกดปุ่มยืนยันครับ
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
+                            <button type="submit" class="btn btn-info btn-sm">ยืนยัน</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+@section Scripts {
+    <!-- PupupBoostap -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <script>
+        $(function () {
+            $("#select-Ctm").change(function () {
+                $.post("/Complaint/Customerselect",
+                    { CostomerId: $(this).val() },
+                    function (response) {
+                        $("#txtcostomername").val(response.costomerName)
+                        $("#txtproductname").val(response.productName)
+                        $("#txtproductid").val(response.productId)
+                    }
+                );
+            });
+        });
+    </script>
 }
 
-<h1>แก้ไข</h1>
+
+

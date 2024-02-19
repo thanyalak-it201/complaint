@@ -4449,6 +4449,7 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
+
 }
 .card > hr {
   margin-left: 0;
@@ -4474,8 +4475,8 @@ textarea.form-control-lg {
 }
 
 .card-body {
-  flex: 1 1 auto;
-  padding: 1rem 1rem;
+    flex: 1 1 auto;
+    padding: 4rem 4rem;
 }
 
 .card-title {

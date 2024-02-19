@@ -26,12 +26,44 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\student.it\source\repos\Complaint\Complaint
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/Account/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxIb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/AddUser/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkVXNlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/AddUser/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkVXNlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/AddUser/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRkVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/Complaint/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGxhaW50XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/student.it/source/repos/Complaint/Complaint/Views/Complaint/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGxhaW50XEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/Complaint/Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGxhaW50XEhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/student.it/source/repos/Complaint/Complaint/Views/Complaint/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGxhaW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/Complaint/PrintReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGxhaW50XFByaW50UmVwb3J0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/student.it/source/repos/Complaint/Complaint/Views/Home/Index.cshtml]
@@ -68,6 +100,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/student.it/source/repos/Complaint/Complaint/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/student.it/source/repos/Complaint/Complaint/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/student.it/source/repos/Complaint/Complaint/Views/_ViewImports.cshtml]

@@ -1,0 +1,19 @@
+﻿@model Complain.Models.User;
+@{
+    Layout = null; 
+}
+<div class="container">
+<div class="main">
+<div class="padding">
+    <form id="editForm" method="post" asp-controller="AddUser" asp-action="Update">
+        <div id="editFormContent">
+            <input type="hidden" asp-for="UserId" name="Id" value="@ViewBag.Id" readonly />
+            <label asp-for="RoleId" for="RoleId" class="form-label">ตำแหน่ง</label>
+            <select asp-for="RoleId" asp-items="ViewBag.Role" class="select2 form-select rounded-pill" id="RoleIdSelect">
+                <option>เลือก</option>
+            </select>
+        </div>
+    </form>
+</div>
+</div>
+</div>

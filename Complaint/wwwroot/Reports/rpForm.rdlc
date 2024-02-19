@@ -1,0 +1,1519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="dsForm">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>875544d7-6eea-4803-a66a-4ca9573f6d08</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="dsForm">
+      <Query>
+        <DataSourceName>dsForm</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="FromId">
+          <DataField>FromId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="FromData">
+          <DataField>FromData</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ToId">
+          <DataField>ToId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CCId">
+          <DataField>CCId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FromName">
+          <DataField>FromName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CostomerName">
+          <DataField>CostomerName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProductName">
+          <DataField>ProductName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Lot">
+          <DataField>Lot</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ProblemName">
+          <DataField>ProblemName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProblemOthet">
+          <DataField>ProblemOthet</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Number">
+          <DataField>Number</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Price">
+          <DataField>Price</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Co">
+          <DataField>Co</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TypeName">
+          <DataField>TypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Image">
+          <DataField>Image</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Note">
+          <DataField>Note</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserName">
+          <DataField>UserName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmpDepartment">
+          <DataField>EmpDepartment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmpSection">
+          <DataField>EmpSection</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EmpPosition">
+          <DataField>EmpPosition</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MngName">
+          <DataField>MngName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StatusName">
+          <DataField>StatusName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UserId">
+          <DataField>UserId</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>dsForm</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\student.it\source\repos\Complaint\Complaint\ReportDataSets\dsForm.xsd</rd:SchemaPath>
+        <rd:TableName>dsForm</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="Textbox37">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>เรื่อง :</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>0.19791in</Top>
+            <Left>0.25694in</Left>
+            <Height>0.25in</Height>
+            <Width>0.41666in</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox38">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>ลูกค้า :</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>0.51736in</Top>
+            <Left>0.25694in</Left>
+            <Height>0.25in</Height>
+            <Width>0.52083in</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="FromName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!FromName.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>FromName</rd:DefaultName>
+            <Top>0.19791in</Top>
+            <Left>0.74305in</Left>
+            <Height>0.25in</Height>
+            <Width>6.57574in</Width>
+            <ZIndex>2</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="CostomerName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!CostomerName.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>CostomerName</rd:DefaultName>
+            <Top>0.51736in</Top>
+            <Left>0.84722in</Left>
+            <Height>0.25in</Height>
+            <Width>6.47158in</Width>
+            <ZIndex>3</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox39">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>ปัญหาที่พบ :</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>1.15625in</Top>
+            <Left>0.25697in</Left>
+            <Height>0.25in</Height>
+            <Width>0.77083in</Width>
+            <ZIndex>4</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox40">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Lot :</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>0.8368in</Top>
+            <Left>4.0625in</Left>
+            <Height>0.25in</Height>
+            <Width>0.41666in</Width>
+            <ZIndex>5</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox41">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>สินค้า :</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>0.8368in</Top>
+            <Left>0.25696in</Left>
+            <Height>0.25in</Height>
+            <Width>0.52083in</Width>
+            <ZIndex>6</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="ProductName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!ProductName.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>ProductName</rd:DefaultName>
+            <Top>0.8368in</Top>
+            <Left>0.84723in</Left>
+            <Height>0.25in</Height>
+            <Width>3.14583in</Width>
+            <ZIndex>7</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox42">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>CO(ถ้ามี) :</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>1.47569in</Top>
+            <Left>4.0625in</Left>
+            <Height>0.25in</Height>
+            <Width>0.68403in</Width>
+            <ZIndex>8</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Lot">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Lot.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                      <Format>dd-MM-yy</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Lot</rd:DefaultName>
+            <Top>0.8368in</Top>
+            <Left>4.54861in</Left>
+            <Height>0.25in</Height>
+            <Width>2.7702in</Width>
+            <ZIndex>9</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="ProblemName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!ProblemName.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>ProblemName</rd:DefaultName>
+            <Top>1.15625in</Top>
+            <Left>1.09724in</Left>
+            <Height>0.25in</Height>
+            <Width>2.89582in</Width>
+            <ZIndex>10</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Line Name="Line1">
+            <Top>0.12847in</Top>
+            <Left>0.25696in</Left>
+            <Height>0in</Height>
+            <Width>7.06184in</Width>
+            <ZIndex>11</ZIndex>
+            <Style>
+              <Border>
+                <Style>Solid</Style>
+              </Border>
+            </Style>
+          </Line>
+          <Textbox Name="Textbox45">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>จำนวน :</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>1.15625in</Top>
+            <Left>4.0625in</Left>
+            <Height>0.25in</Height>
+            <Width>0.54166in</Width>
+            <ZIndex>12</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox46">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>มูลค่าความเสียหาย(ถ้ามี) :</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox32</rd:DefaultName>
+            <Top>1.47569in</Top>
+            <Left>0.25697in</Left>
+            <Height>0.35417in</Height>
+            <Width>1.48611in</Width>
+            <ZIndex>13</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Co">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Co.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Co</rd:DefaultName>
+            <Top>1.47569in</Top>
+            <Left>4.81598in</Left>
+            <Height>0.25in</Height>
+            <Width>2.50283in</Width>
+            <ZIndex>14</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Price">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!Price.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                      <Format>0;(0)</Format>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Price</rd:DefaultName>
+            <Top>1.47569in</Top>
+            <Left>1.81252in</Left>
+            <Height>0.35417in</Height>
+            <Width>2.18054in</Width>
+            <ZIndex>15</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Textbox53">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>รูปสินค้า : รูปถ่ายสินค้าที่พบปัญหาจากทางลูกค้า</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox53</rd:DefaultName>
+            <Top>2.5625in</Top>
+            <Left>0.25697in</Left>
+            <Height>0.25in</Height>
+            <Width>2.65625in</Width>
+            <ZIndex>16</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Note">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=First(Fields!Note.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Note</rd:DefaultName>
+            <Top>4.25in</Top>
+            <Left>0.25698in</Left>
+            <Height>0.71875in</Height>
+            <Width>2.65624in</Width>
+            <ZIndex>17</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Textbox Name="Number">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!Number.Value, "dsForm")</Value>
+                    <Style>
+                      <FontFamily>th Sarabun New</FontFamily>
+                      <FontSize>14pt</FontSize>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Left</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Number</rd:DefaultName>
+            <Top>1.15625in</Top>
+            <Left>4.67361in</Left>
+            <Height>0.25in</Height>
+            <Width>2.64519in</Width>
+            <ZIndex>18</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+          <Image Name="Image6">
+            <Source>Database</Source>
+            <Value>=First(Fields!Image.Value, "dsForm")</Value>
+            <MIMEType>image/png</MIMEType>
+            <Sizing>FitProportional</Sizing>
+            <Top>2.88194in</Top>
+            <Left>0.25698in</Left>
+            <Height>1.29861in</Height>
+            <Width>7.06183in</Width>
+            <ZIndex>19</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Image>
+        </ReportItems>
+        <Height>5.95833in</Height>
+        <Style />
+      </Body>
+      <Width>7.65153in</Width>
+      <Page>
+        <PageHeader>
+          <Height>2.64458in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox33">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>วันที่ :</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox32</rd:DefaultName>
+              <Top>1.56125in</Top>
+              <Left>0.25696in</Left>
+              <Height>0.25in</Height>
+              <Width>0.41666in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox32">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>แบบรับข้อร้องเรียนจากลูกค้า</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox32</rd:DefaultName>
+              <Top>1.2093in</Top>
+              <Left>3.32862in</Left>
+              <Height>0.25in</Height>
+              <Width>1.77083in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox34">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>เรียน :</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox32</rd:DefaultName>
+              <Top>1.88069in</Top>
+              <Left>0.25696in</Left>
+              <Height>0.25in</Height>
+              <Width>0.41666in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox35">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>สำเนาถึง :</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox32</rd:DefaultName>
+              <Top>2.20014in</Top>
+              <Left>0.25694in</Left>
+              <Height>0.25in</Height>
+              <Width>0.63541in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox36">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>เลขที่ :</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox32</rd:DefaultName>
+              <Top>1.56125in</Top>
+              <Left>5.92645in</Left>
+              <Height>0.25in</Height>
+              <Width>0.41666in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="FromData">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!FromData.Value, "dsForm")</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                        <Format>dd-MM-yy</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>FromData</rd:DefaultName>
+              <Top>1.56125in</Top>
+              <Left>0.74306in</Left>
+              <Height>0.25in</Height>
+              <Width>1.93056in</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox31">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>บริษัท แปซิฟิคแปรรูปสัตว์น้ำ จำกัด</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox31</rd:DefaultName>
+              <Top>0.3968in</Top>
+              <Left>1.36805in</Left>
+              <Height>0.25in</Height>
+              <Width>3.41889in</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox43">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>27/4 ม.7 ถ.เก้าเส้ง-จะนะ ต.เขารูปช้าง อ.เมือง จ.สงขลา 90000</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>โทร.0-7430-3999 แฟ็กซ์ 0-7430-3900</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox43</rd:DefaultName>
+              <Top>0.6468in</Top>
+              <Left>1.36805in</Left>
+              <Height>0.47in</Height>
+              <Width>3.41889in</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Image Name="Image2">
+              <Source>Embedded</Source>
+              <Value>logo1</Value>
+              <Sizing>FitProportional</Sizing>
+              <Top>0.3968in</Top>
+              <Left>0.25694in</Left>
+              <Height>0.71181in</Height>
+              <Width>1.11111in</Width>
+              <ZIndex>8</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Textbox Name="Textbox44">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>เลขที่เอกสาร: F-ME2-001(6)</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>วันที่บังคับใช้: 01-07-64</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value />
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>12pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox44</rd:DefaultName>
+              <Top>0.3968in</Top>
+              <Left>5.92645in</Left>
+              <Height>0.52208in</Height>
+              <Width>1.39234in</Width>
+              <ZIndex>9</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="FromId">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Sum(Fields!FromId.Value, "dsForm")</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>FromId</rd:DefaultName>
+              <Top>1.56125in</Top>
+              <Left>6.41255in</Left>
+              <Height>0.25in</Height>
+              <Width>0.90624in</Width>
+              <ZIndex>10</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="MngName1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!MngName.Value, "dsForm")</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>MngName1</rd:DefaultName>
+              <Top>1.88069in</Top>
+              <Left>0.74305in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <ZIndex>11</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="MngName2">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!MngName.Value, "dsForm")</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>MngName2</rd:DefaultName>
+              <Top>2.20014in</Top>
+              <Left>0.96179in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <ZIndex>12</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>1.66667in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="Textbox56">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>จึงเรียนมาเพื่อทราบและโปรดพิจารณาดำเนินการ</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox56</rd:DefaultName>
+              <Top>0.10417in</Top>
+              <Left>0.25698in</Left>
+              <Height>0.25in</Height>
+              <Width>2.65624in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox57">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>ขอแสดงความนับถือ</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox56</rd:DefaultName>
+              <Top>0.35417in</Top>
+              <Left>0.25694in</Left>
+              <Height>0.25in</Height>
+              <Width>2.65624in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox58">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>ผู้ดำเนินการ</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox56</rd:DefaultName>
+              <Top>0.86979in</Top>
+              <Left>0.25698in</Left>
+              <Height>0.25in</Height>
+              <Width>0.77082in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="Textbox59">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>ผู้พิจรารณา</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>Textbox56</rd:DefaultName>
+              <Top>0.86979in</Top>
+              <Left>4.81598in</Left>
+              <Height>0.25in</Height>
+              <Width>0.77082in</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="MngName">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!MngName.Value, "dsForm")</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>MngName</rd:DefaultName>
+              <Top>0.86979in</Top>
+              <Left>5.65624in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Textbox Name="UserName">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!UserName.Value, "dsForm")</Value>
+                      <Style>
+                        <FontFamily>th Sarabun New</FontFamily>
+                        <FontSize>14pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>UserName</rd:DefaultName>
+              <Top>0.86979in</Top>
+              <Left>1.09724in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <PageHeight>11.69in</PageHeight>
+        <PageWidth>8.27in</PageWidth>
+        <LeftMargin>0.16in</LeftMargin>
+        <RightMargin>0.16in</RightMargin>
+        <TopMargin>0.16in</TopMargin>
+        <BottomMargin>0.16in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="param1">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+      <CellDefinitions>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>0</RowIndex>
+          <ParameterName>param1</ParameterName>
+        </CellDefinition>
+      </CellDefinitions>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <EmbeddedImages>
+    <EmbeddedImage Name="logo">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>iVBORw0KGgoAAAANSUhEUgAAAMUAAABtCAMAAAAmqVVBAAAAOVBMVEVHcEwNTpwMTpzrHCRoPnYMTpzrHCQMTpwMTp0MTpwMTpwMTp3mHCXnHCXoGyTpHCThHCcNTpztHCQ4rHvvAAAAEXRSTlMA7x9FDr/SmTl41VSGZiar840FvAEAAAO+SURBVHic7ZtZdoMgFEBFJidA3f9iC0gEnKJJsCHn3dN+xKYPLpOAWBQAAAAAAAAxUnSKsb5nTCkhiyzBqh8D+i5DD8ymzCvFHh4sO43OVQDW7SpXDaJcvrvAyFRMkRMPiRHHFn1OleGzbXPNfBfHRTbgMbIgeVqwXQtGilwIqmJqUSLHqlBLi0c/YaLIhrAbOIsCdyqzOYgMpx0ZNaEYDBZfg4C6AItnlJuQqxaXwnxeAiE0oBUN5XVbHlvIl8N8HFJVLUfDJojWc2HizhDeukdlL+FLYZJWSOOT5HXN/cemdV/pxh26S2GS0vrkiS1ZOl/gUzmKPQuxHabcDpOUKk5eU89XKDm06C6FSUqJlskX3BejtWCGaPvGXonmshthaBzmbgt/aaj0R2KJR9rp2qUwd1sEpUjn7z25650Nc6OFb9JD+YbFVpgbLfyAM7RvWGyFudHCDzhD/YbFVpg7LdB6eHnBohxuG6V+2OInWtRv9G4/RKLPjLQo9Rzk+Hbl2/Nbd73kU5CN5KuNqnjBYjPMfRZ0qzlft6C39YqN5AnfHFmuWuyESW9hV0ntXIQoSv2axW6Y5BZDvNSk8XT6tMVxmPQWAQ1fJn7e4jBMeovGQjmvq/X4ft4CHYVJboGqxfrtNYvjMOktDkf1F+56YAEWYAEWYAEWr4YBC7D4KQuRicVw3mJ9lsjvA6KblhQRwQbeYfLxM9ZXwpCEz/qDhwxHC2QcH2iW18PgLt2iow1Wmmhnx4UQKSIJcz5NkmthhJrMyYe7DdGrfDpEUL3yX5WYYAsFJ+KeTu6EiTMrlSLu2x+2KKld
+Hzd0/rEL5nJtscNkUTZPw5Cud82p4v/R9z8BEX3vBrWWZiohu350XaLkzX/cSxxESoyFsCdYhMBYypN7HER2zJ9UbRH979PDZFLpOsX63r4Go40OhIjEwr6iwYTrETT1fi0hZdW2eqzhnAboj3XdttXiyNaUwd5hXutRUx05jKpy41rgkOxwjsm8zjptdo43zXcAPfTwWuuQ2GWqmNH8jCbX8Yjcs8cJKrP1zBN0iUf+fYnrMve0pmbs3xsUGjZLmdll4dCz+cxzWTdp9pxtA9K5PnO4rzS+dVxfk0zkMrUji+kwjxlK2VL9f/SWk15nzbVMUDVo1coW/lVtFLTD173YQKxLE+6QO5k5q+QhbKvti2/WKxez3W87mf5t5usN/75qWLuUS5fQ6s7HFx/AdX86zQLNoGdaWJEt9z99uZC3XCfTsQXPqX0DAAAAAAAAAAAAAPCEP9F2sQcA3rnXAAAAAElFTkSuQmCC</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="logo1">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>7d5b74d2-904d-46a2-a633-e63d71825795</rd:ReportID>
+</Report>

@@ -1,176 +1,236 @@
-﻿@model Complain.Models.Form;
+﻿@model Complain.Models.VForm;
+@using SetCookie
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+}
 @{
-    ViewData["Title"] = "ComplaintPage";
+    ViewData["Title"] = "IndexPage";
 }
 
-<body>
+@{
+    var userIdCookie = Context.Request.Cookies["UserName"];
+    // ตรวจสอบว่าคุกกี้ "UserId" มีค่าหรือไม่
+    var hasUserIdCookie = !string.IsNullOrEmpty(userIdCookie);
+}
 
-    <div class="card mb-4">
-        <h5 class="card-header">แบบรับข้อร้องเรียนจากลูกค้า</h5>
-        <form method="post" class="card-body" asp-controller="Complaint" asp-action="Create">
-            <h6>กรุณาเลือก</h6>
-            <center>
-                <div class="col-md-10">
-                    <div class="btn-group col-12 rounded" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" id="btnradio1" />
-                        <label class="btn btn-outline-primary" for="btnradio1">เสนอแนะ</label>
 
-                        <input type="radio" class="btn-check" id="btnradio2" checked/>
-                        <label class="btn btn-outline-primary" for="btnradio2">Complaint</label>
+@if (hasUserIdCookie)
+{
+    <div class="container">
+        <div class="main">
+            <div class="padding">
+            <div>รายการแจ้งข้อร้องเรียนจากลูกค้า</div>
+            <br />
+                <table id="myTable" class="display" style="width: 100%; padding: 10px">
+                    <thead>
+                        <tr>
+                            @{
+                                var loggedInRoles = User.GetLoggedInRole();
+                            }
 
-                        <input type="radio" class="btn-check" id="btnradio3"/>
-                        <label class="btn btn-outline-primary" for="btnradio3">Claim</label>
-                    </div>
-                </div>
-            </center>
-            <hr class="my-4 mx-n4" />
-            <h6>ขั้นตอนที่ 1</h6>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <label asp-for="FromData" for="roundedInput" class="form-label">กรุณากรอกวันที่ยื่นเรื่อง</label>
-                    <input asp-for="FromData" type="date" id="roundedInput" class="form-control rounded-pill" />
-                </div>
-                <div class="col-md-6">
-                    <div class="mt">
-                        <label asp-for="ToId" for="ToId" class="form-label">เรียน</label>
-                        <select asp-for="ToId" asp-items="ViewBag.ListManager" type="text" class="select2 form-select rounded-pill">
-                            <option>เลือก</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="CCId" for="CCId" class="form-label">สำเนาถึง</label>
-                        <select asp-for="CCId" asp-items="ViewBag.ListManager" type="text" class="select2 form-select rounded-pill">
-                            <option>เลือก</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="FromName" for="FromName" class="form-label">เรื่อง</label>
-                        <input asp-for="FromName" type="text" id="roundedInput" class="form-control rounded-pill" placeholder="กรุณากรอกเรื่องที่ร้องเรียน" />
-                    </div>
-                </div>
-            </div>
-            <hr class="my-4 mx-n4" />
-            <h6>ขั้นตอนที่ 2</h6>
-            <div class="row g-3">
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="CostomerId" for="CostomerId" class="form-label">รหัสลูกค้า</label>
-                        <select asp-for="CostomerId" type="text" id="select-Ctm" asp-items="ViewBag.ListCostomer" class="select2 form-select rounded-pill" requireds>
-                            <option>เลือก</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label class="form-label">ชื่อลูกค้า</label>
-                        <input type="text" id="txtcostomername" class="form-control rounded-pill" disabled />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label class="form-label">รหัสสินค้า</label>
-                        <input type="text" id="txtproductid" class="form-control rounded-pill" disabled />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label class="form-label">ชื่อสินค้า</label>
-                        <input type="text" id="txtproductname" class="form-control rounded-pill" disabled />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="Lot" for="Lot" class="form-label">กรุณากรอกวันที่ผลิตสินค้า</label>
-                        <input asp-for="Lot" type="date" class="form-control rounded-pill" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="ProblemName" for="ProblemName" class="form-label">ปัญหาที่พบ</label>
-                        <select asp-for="ProblemName" asp-items="ViewBag.ListProblem" class="select2 form-select rounded-pill">
-                            <option>เลือก</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="Number" for="Number" class="form-label">จำนวน</label>
-                        <input asp-for="Number" type="number" class="form-control rounded-pill" placeholder="กรุณากรอกจำนวนสินค้า" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mt-2">
-                        <label asp-for="Price" for="Price" class="form-label">มูลค่าความเสียหาย</label>
-                        <input asp-for="Price" type="number" class="form-control rounded-pill" placeholder="มูลค่าความเสียหาย" />
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="mt-2">
-                        <label asp-for="Note" for="Note" class="form-label">รายละเอียดเพิ่มเติม</label>
-                        <input asp-for="Note" type="text" id="bootstrap-maxlength-example2" rows="3" maxlength="255" class="form-control rounded-pill" />
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-auto">
-                        <label asp-for = "Image" for="formFile" class="form-label">แนบไฟล์</label>
-                        <input asp-for="Image" class="form-control rounded-pill" type="file" id="formFile" />
-                    </div>
-                </div>
-            </div>
+                            @if (loggedInRoles.Contains("1") || loggedInRoles.Contains("2"))
+                            {
+                                <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">No.</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">ID</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">วันที่</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 25%;">เรื่อง</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 13%;">ชื่อลูกค้า</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 15%;">ปัญหาที่พบ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">Lot</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">สถานะ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">แก้ไข</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">ลบ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">Print</th>
+                            }
+                            @if (loggedInRoles.Contains("3"))
+                            {
+                                <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">No.</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">ID</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">วันที่</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 25%;">เรื่อง</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 13%;">ชื่อลูกค้า</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 15%;">ปัญหาที่พบ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">Lot</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">สถานะ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">Print</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int Count = 0;
+                        }
+                        @foreach (var item in ViewBag.VForm)
+                        {
+                            Count++;
+                            <tr class="bg-blue">
+                                @if (loggedInRoles.Contains("1") || loggedInRoles.Contains("2"))
+                                {
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @Count.
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromId
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromData
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.CostomerName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @if (item.ProblemId == null)
+                                        {
+                                            @item.ProblemOthet
+                                        }
+                                        else
+                                        {
+                                            @item.ProblemName
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.Lot
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @switch (item.StatusName)
+                                        {
+                                            case "รออนุมัติ":
+                                                <img src="~/img/รออนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "อนุมัติ":
+                                                <img src="~/img/อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ไม่อนุมัติ":
+                                                <img src="~/img/ไม่อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ยกเลิก":
+                                                <img src="~/img/ยกเลิก.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            default:
+                                                // กรณีที่ไม่ตรงกับ case ใด ๆ
+                                                <span>ไม่ทราบสถานะ</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a asp-controller="Complaint" asp-action="Edit" asp-route-id="@item.FromId">
+                                            <img src="~/img/แก้ไข.png" style="width: 60%; height: 60%;" />
+                                        </a>
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a asp-controller="Complaint" asp-action="Delete" asp-route-id="@item.FromId">
+                                            <img src="~/img/ลบ.png" style="width: 80%; height: 80%;" />
+                                        </a>
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a id="btnPrint" class="btn btn-success" target="_blank" asp-controller="Complaint" asp-action="PrintReport" class="select-button" asp-route-id="@item.FromId">
+                                            Print</a>
+                                    </td>
+                                }
 
-            <!-- Button trigger modal -->
-            <center>
-                <div class="pt-4">
-                    <button type="button" class="btn btn-primary me-sm-3 me-1" data-toggle="modal" data-target="#exampleModalCenter">
-                        บันทึกข้อมูล
-                    </button>
-                </div>
-            </center>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;System</h5>
-                        </div>
-                        <div class="modal-body" style="text-align: center;">
-                            คุณต้องการบันทึกข้อมูลใช่หรือไม่ โปรดกดปุ่มยืนยันค่ะ
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
-                            <button type="submit" class="btn btn-success btn-sm">ยืนยัน</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+                                @if (loggedInRoles.Contains("3"))
+                                {
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @Count.
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromId
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromData
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.CostomerName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @if (item.ProblemId == null)
+                                        {
+                                            @item.ProblemOthet
+                                        }
+                                        else
+                                        {
+                                            @item.ProblemName
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.Lot
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @switch (item.StatusName)
+                                        {
+                                            case "รออนุมัติ":
+                                                <img src="~/img/รออนุมัติ.png" style="width: 80%; height: 80%;" />
+                                                break;
+                                            case "อนุมัติ":
+                                                <img src="~/img/อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ไม่อนุมัติ":
+                                                <img src="~/img/ไม่อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ยกเลิก":
+                                                <img src="~/img/ยกเลิก.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            default:
+                                                // กรณีที่ไม่ตรงกับ case ใด ๆ
+                                                <span>ไม่ทราบสถานะ</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a id="btnPrint" class="btn btn-success" target="_blank" asp-controller="Complaint" asp-action="PrintReport" class="select-button" asp-route-id="@item.FromId">
+                                            Print
+                                        </a>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                
+            </div>         
+        </div>
     </div>
-</body>
 
-@section Scripts {
-    
-    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+}
+else
+{
+    <p>ไม่มีข้อมูลจากคุกกี้</p>
+}
+
+@section Scripts
+{
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <script>
-        
-        $(function () {
-            $("#select-Ctm").change(function () {
-                $.post("/Complaint/Customerselect",
-                    { CostomerId: $(this).val() },
-                    function (response) {
-                        $("#txtcostomername").val(response.costomerName)
-                        $("#txtproductname").val(response.productName)
-                        $("#txtproductid").val(response.productId)
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                searching: true,
+                columnDefs: [
+                    {
+                        targets: [2, 6],
+                        render: function (data, type, row) {
+                            // แปลงวันที่ให้เป็นรูปแบบของ DataTables (เฉพาะวันที่)
+                            return new Date(data).toLocaleDateString();
+                        }
                     }
-                 );
+                ],
+                
             });
         });
+
     </script>
 }
-
-
-

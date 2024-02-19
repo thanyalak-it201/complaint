@@ -1,80 +1,157 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@using SetCookie
+@model Complain.Models.Form;
+
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Complaint</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Complaint.styles.css" asp-append-version="true" />
-
-    <!--=============== REMIXICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-
-    <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css">
-
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]Complaint</title>
+    <!-- css -->
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <!-- Core CSS -->
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <!-- stylesTable -->
+    <link rel="stylesheet" href="~/css/stylesTable.css" />
+    <!-- stylesDashboard -->
+    @await RenderSectionAsync("Styles", required: false)
 </head>
+
 <body>
-    <center>
-    <nav class="nav">
-        <ul class="nav__list">
-            <a href="#" class="nav__link active-link">
-                <i class="ri-dashboard-3-line"></i>
-                <span class="nav__name">Home</span>
-            </a>
+    @{
+        var userIdCookie = Context.Request.Cookies["UserName"];
+        // ตรวจสอบว่าคุกกี้ "UserId" มีค่าหรือไม่
+        var hasUserIdCookie = !string.IsNullOrEmpty(userIdCookie);
+    }
 
-            <a href="#" class="nav__link">
-                <i class="ri-account-box-line"></i>
-                <span class="nav__name">Accounts</span>
-            </a>
+    @if (hasUserIdCookie)
+    {
+        <div class="container">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span class="icon">
+                                <ion-icon name=""></ion-icon>
+                            </span>
+                            <span class="title">Complaint</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="Home" asp-controller="Complaint">
+                            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                            <span class="title">หน้าหลัก</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="Complaint">
+                            <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
+                            <span class="title">รายการข้อร้องเรียน</span>
+                        </a>
+                    </li>
+                    @{
+                        var loggedInRoles = User.GetLoggedInRole();
+                    }
 
-            <a href="#" class="nav__link">
-                <i class="ri-rocket-line"></i>
-                <span class="nav__name">Investments</span>
-            </a>
+                    @if (loggedInRoles.Contains("1") || loggedInRoles.Contains("2"))
+                    {
+                        <li>
+                            <a asp-action="Create" asp-controller="Complaint">
+                                <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
+                                <span class="title">แบบรับข้อร้องเรียนลูกค้า</span>
+                            </a>
+                        </li>
+                    @if (loggedInRoles.Contains("1"))
+                    {
+                        <li>
+                            <a asp-action="Index" asp-controller="AddUser">
+                                <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                                <span class="title">ผู้ใช้งาน</span>
+                            </a>
+                        </li>
+                    }
+                    }
+                    <li>
+                        <a asp-action="Index" asp-controller="User">
+                            <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
+                            <span class="title">บัญชีของฉัน</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="User">
+                            <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                            <span class="title">ช่วยเหลือ</span>
+                        </a>
+                    </li>
 
-            <a href="#" class="nav__link">
-                <i class="ri-file-list-3-line"></i>
-                <span class="nav__name">Files</span>
-            </a>
+                    <li>
+                        <a asp-controller="Account" asp-action="Logout">
+                            <span  class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                            <span class="title" aria-hidden="true">ออกจากระบบ</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- ========================= Main ==================== -->
+                <div class="main">
+                    <div class="topbar">
+                        <div class="toggle">
+                                <ion-icon name="notifications-outline"></ion-icon>
+                                <h6>
+                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        @ViewBag.StatusId0
+                                        <span class="visually-hidden">unread messages</span>
+                                    </span>
+                                </h6>
+                        </div>
 
-            <a href="#" class="nav__link">
-                <i class="ri-settings-3-line"></i>
-                <span class="nav__name">Settings</span>
-            </a>
+                        <div class="user">
+                            <img src="~/img/Profile/imgProfile.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+        </div>
+    }
 
-                <a asp-action="Index" asp-controller="Problems" class="nav__link">
-                    <i class="ri-file-list-3-line"></i>
-                    <span class="nav__name">Files</span>
-                </a>
-        </ul>
 
-        <!-- Shapes -->
-        @* <div class="nav__circle-1"></div>
-        <div class="nav__circle-2"></div>
-
-        <div class="nav__square-1"></div>
-        <div class="nav__square-2"></div> *@
-    </nav>
-    </center>
-    <!--=============== MAIN JS ===============-->
-    <script src="assets/js/main.js"></script>
-
-    <!--===== MAIN JS =====-->
-    <script src="assets/js/main.js"></script>
-
-    <div class="container">
-        <main role="main" class="pb-3">
+        <div>
             @RenderBody()
-        </main>
-    </div>
-
+        </div>
+        @await RenderSectionAsync("Scripts", required: false)
     
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
+
+    let list = document.querySelectorAll('.list');
+    let menuToggle = document.querySelector('.toggle');
+    let navigation = document.querySelector('.navigation');
+
+    for (let i = 0; i < list.length; i++) {
+        list[i].onclick = function () {
+            console.log('Clicked on list item', i);
+
+            let targetUrl = list[i].querySelector('a').getAttribute('href');
+            console.log('Target URL:', targetUrl);
+
+            window.location.href = targetUrl;
+
+            // ปิดเมนู
+            menuToggle.classList.remove('active');
+            navigation.classList.remove('active');
+
+            // ปรับ class ของทุก list เพื่อให้ถูกเลือกเฉพาะตัวนี้
+            let j = 0;
+            while (j < list.length) {
+                list[j++].className = 'list';
+            }
+            list[i].className = 'list active';
+        }
+    }
+
+
+</script>

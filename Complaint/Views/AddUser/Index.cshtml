@@ -1,0 +1,145 @@
+﻿@model Complain.Models.VUser;
+@{
+    ViewData["Title"] = "Add User Page";
+}
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+}
+<div class="container">
+<div class="padding1">
+<div class="main">
+    <div class="h2 font-weight-bold">ตั้งค่าผู้ใช้งาน</div>
+    <br />
+        <a asp-action="Create" asp-controller="AddUser" type="button" class="btn btn-primary me-sm-3 me-1 rounded-pill">เพิ่มผู้ใช้งาน</a>
+    
+    <br />
+    <br />
+    <table id="myTable" class="display" style="width: 100%; padding: 10px">
+        <thead>
+            <tr>
+                <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">No.</th>
+                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">User ID</th>
+                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7  your-class" style="width: 10%;">ชื่อ</th>
+                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7  your-class" style="width: 10%;">ฝ่าย</th>
+                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7  your-class" style="width: 10%;">แผนก</th>
+                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7  your-class" style="width: 10%;">ตำแหน่ง</th>
+                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7  your-class" style="width: 5%;">Role</th>
+                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">สถานะ</th>
+                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">ลบ</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int Count = 0;
+            }
+            @foreach (var item in ViewBag.VUser)
+            {
+                Count++;
+                <tr class="bg-blue">
+                    <td class="pt-3 text-s text-center" style="background : white">
+                        @Count.
+                    </td>
+                    <td class="pt-3 text-s text-center" style="background : white">
+                        @item.UserId
+                    </td>
+                    <td class="pt-3 text-s" style="background : white">
+                        @item.UserName
+                    </td>
+                    <td class="pt-3 text-s" style="background : white">
+                        @item.DepartmentName
+                    </td>
+                    <td class="pt-3 text-s" style="background : white">
+                        @item.SectionName
+                    </td>
+                    <td class="pt-3 text-s" style="background : white">
+                        @item.PositionName
+                    </td>
+                    @* @* <td class="pt-3 text-s" style="background : white">
+                        @item.Email
+                    </td> *@
+                    <td class="pt-3 text-s" style="background : white">
+                        @item.RoleName
+                        <a data-bs-toggle="modal" data-bs-target="#editModal" onclick="openEditModal(@item.UserId)">
+                            <img src="~/img/แก้ไข.png" style="width: 15%; height: 15%;" />
+                        </a>
+                    </td>
+                    <td class="pt-3 text-s text-center" style="background : white">
+                        @if (item.StatusUsId == "1")
+                        {
+                            <a asp-controller="Promotion" asp-action="Delete">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16" color="red">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                                </svg>
+                            </a>
+                        }
+                        else
+                        {
+                            <a asp-route-id="@item.StatusUsId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16" color="#52D017">
+                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                                </svg>
+                            </a>
+                        }
+                    </td>
+
+
+                    <td class="pt-3 text-s text-center" style="background : white">
+                        <a asp-controller="AddUser" asp-action="Delete" asp-route-id="@item.UserId">
+                            <img src="~/img/ลบ.png" style="width: 35%; height: 35%;" />
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                <!-- Modal -->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;แก้ไขสิทธิ์ผู้ใช้งาน</h5>
+                            </div>
+                            <form id="editForm" method="post" asp-controller="AddUser" asp-action="Update">
+                                <div class="modal-body" style="text-align: center;">
+                                    <div id="editFormContent">
+                                        <input type="hidden" asp-for="UserId" value ="@ViewBag.Id" name="UserId" readonly/>
+                                        <label asp-for="RoleId" for="RoleId" class="form-label">ตำแหน่ง</label>
+                                        <select asp-for="RoleId" asp-items="ViewBag.Role" class="select2 form-select rounded-pill" id="RoleIdSelect">
+                                            <option>เลือก</option>
+                                        </select>        
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
+                                    <button type="submit" value="Update" class="btn btn-success btn-sm">ยืนยัน</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+</div>
+</div>
+</div>
+
+
+@section Scripts 
+{
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+
+    <script>
+        function openEditModal(UserId) {
+            $('#editModal').modal('show');
+
+            document.getElementById('editForm').UserId.value = UserId;
+        }
+
+    </script>
+}
