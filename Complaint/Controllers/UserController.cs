@@ -39,49 +39,35 @@ namespace Complaint.Controllers
             return View();
         }
 
-        // ===================================== Update บันทึกรายการแก้ไข =============================================
+        // ===================================== Update Profile =============================================
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult UpdateProfile(User user, IFormFile file)
+        public IActionResult UpdateProfile(User Id, IFormFile file)
         {
+            var user = _db.Users.FirstOrDefault(u => u.UserId == User.GetLoggedInUserId());
+            
             if (file != null && file.Length > 0)
             {
+                var fileName = Path.GetFileNameWithoutExtension(file.FileName);
+                var fileExtension = Path.GetExtension(file.FileName);
+                var imagePath = Path.Combine("wwwroot", "img", "Profile", $"{fileName}{fileExtension}");
+                var imagesFolderPath = Path.Combine("wwwroot", "img", "Profile");
 
-                var fileName = Path.GetFileNameWithoutExtension(file.FileName);// ดึงชื่อไฟล์ โดยที่ไม่เอานามสกุล
-                var fileExtension = Path.GetExtension(file.FileName); // ดึงนามสกุลไฟล์
-                var imagePath = Path.Combine("wwwroot", "images", $"{fileName}{fileExtension}"); // กำหนดบันทึกที่ wwwroot\images\{ชื่อไฟล์}{นามสกุลไฟล์}
-                var imagesFolderPath = Path.Combine("wwwroot", "images");
-
-                // ตรวจสอบว่าโฟลเดอร์ images มีอยู่หรือไม่
                 if (!Directory.Exists(imagesFolderPath))
                 {
-                    // ถ้าไม่มี, ให้สร้างโฟลเดอร์ images
                     Directory.CreateDirectory(imagesFolderPath);
                 }
 
-                if (System.IO.File.Exists(imagePath)) // ตรวจสอบว่ามีชื่อซ้ำหรือไหม
-                {
-                    var counter = 1; // เพิ่ม _1 หลังชื่อไฟล์
-                    var originalFileName = fileName; // เก็บชื่อไฟล์ต้นฉบับ
-
-                    while (System.IO.File.Exists(imagePath)) // ตรวจสอบว่ามีชื่อซ้ำไหม
-                    {
-                        fileName = $"{originalFileName}_{counter}"; // ชื่อต้นฉบับ_เลข
-                        imagePath = Path.Combine("wwwroot", "img", "Signature", $"{fileName}{fileExtension}"); // กำหนดบันทึกที่ wwwroot\images\{ชื่อไฟล์}{นามสกุลไฟล์}
-                        counter++; // เพิ่มเรือยๆ
-                    }
-                }
-                using (var stream = new FileStream(imagePath, FileMode.Create)) // สร้างไฟล์ใหม่
+                using (var stream = new FileStream(imagePath, FileMode.Create))
                 {
                     file.CopyTo(stream);
                 }
 
-                // กำหนดเส้นทางไฟล์ให้กับ property ImagePath ของ obj
-                user.ImgProfile = Path.Combine("img", $"{fileName}{fileExtension}");
+                user.ImgProfile = Path.Combine("img", "Profile", $"{fileName}{fileExtension}");
                 _db.SaveChanges();
             }
 
-            _db.Forms.Update(user);
+            _db.Users.Update(user);
             Boolean result = _db.SaveChanges() > 0;
             return RedirectToAction(nameof(Index));
         }

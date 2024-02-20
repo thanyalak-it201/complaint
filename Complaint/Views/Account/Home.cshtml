@@ -7,7 +7,7 @@
 }
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
     <style>
         body {
             margin: 0;
@@ -60,22 +60,23 @@
                 background-color: #7096d1;
             }
     </style>
-</head>
-<body>
-    <form method="post" asp-controller="Account" asp-action="Login">
-        <div>
-            <label asp-for="Email" for="Email" class="form-label">Email</label>
-            <input asp-for="Email" type="Email" name="Email" class="form-control rounded-pill" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-        <div>
-            <label asp-for="Password" for="Password" class="form-label">Password</label>
-            <input asp-for="Password" type="Password" name="Password" class="form-control rounded-pill" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-        <canter>
-            <button value="Login" type="submit" class="submit-btn">Login</button>
-        </canter>
-    </form>
-</body>
+    </head>
+
+    <body>
+        <form method="post" asp-controller="Account" asp-action="Login">
+            <div>
+                <label asp-for="Email" for="Email" class="form-label">Email</label>
+                <input asp-for="Email" type="Email" name="Email" class="form-control rounded-pill" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Password" for="Password" class="form-label">Password</label>
+                <input asp-for="Password" type="Password" name="Password" class="form-control rounded-pill" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <canter>
+                <button value="Login" type="submit" class="submit-btn">Login</button>
+            </canter>
+        </form>
+    </body>
 </html>

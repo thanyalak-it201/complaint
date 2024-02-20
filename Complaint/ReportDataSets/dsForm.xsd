@@ -37,7 +37,9 @@
               <xs:element name="EmpPosition" msprop:Generator_ColumnPropNameInTable="EmpPositionColumn" msprop:Generator_ColumnPropNameInRow="EmpPosition" msprop:Generator_UserColumnName="EmpPosition" msprop:Generator_ColumnVarNameInTable="columnEmpPosition" type="xs:string" minOccurs="0" />
               <xs:element name="MngName" msprop:Generator_ColumnPropNameInTable="MngNameColumn" msprop:Generator_ColumnPropNameInRow="MngName" msprop:Generator_UserColumnName="MngName" msprop:Generator_ColumnVarNameInTable="columnMngName" type="xs:string" minOccurs="0" />
               <xs:element name="StatusName" msprop:Generator_ColumnPropNameInTable="StatusNameColumn" msprop:Generator_ColumnPropNameInRow="StatusName" msprop:Generator_UserColumnName="StatusName" msprop:Generator_ColumnVarNameInTable="columnStatusName" type="xs:string" minOccurs="0" />
-              <xs:element name="UserId" msprop:Generator_UserColumnName="UserId" msprop:Generator_ColumnPropNameInTable="UserIdColumn" msprop:Generator_ColumnPropNameInRow="UserId" msprop:Generator_ColumnVarNameInTable="columnUserId" type="xs:string" minOccurs="0" />
+              <xs:element name="UserId" msprop:Generator_ColumnPropNameInTable="UserIdColumn" msprop:Generator_ColumnPropNameInRow="UserId" msprop:Generator_UserColumnName="UserId" msprop:Generator_ColumnVarNameInTable="columnUserId" type="xs:string" minOccurs="0" />
+              <xs:element name="ImgSignature" msprop:Generator_ColumnPropNameInRow="ImgSignature" msprop:Generator_ColumnPropNameInTable="ImgSignatureColumn" msprop:Generator_ColumnVarNameInTable="columnImgSignature" msprop:Generator_UserColumnName="ImgSignature" type="xs:string" minOccurs="0" />
+              <xs:element name="ImgSignatureMng" msprop:Generator_ColumnPropNameInRow="ImgSignatureMng" msprop:Generator_ColumnPropNameInTable="ImgSignatureMngColumn" msprop:Generator_ColumnVarNameInTable="columnImgSignatureMng" msprop:Generator_UserColumnName="ImgSignatureMng" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

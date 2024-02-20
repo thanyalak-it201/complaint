@@ -109,6 +109,14 @@
           <DataField>UserId</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="ImgSignature">
+          <DataField>ImgSignature</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ImgSignatureMng">
+          <DataField>ImgSignatureMng</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>dsForm</rd:DataSetName>
@@ -713,10 +721,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Note</rd:DefaultName>
-            <Top>4.25in</Top>
+            <Top>4.61458in</Top>
             <Left>0.25698in</Left>
             <Height>0.71875in</Height>
-            <Width>2.65624in</Width>
+            <Width>7.06181in</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>
@@ -770,7 +778,7 @@
             <Sizing>FitProportional</Sizing>
             <Top>2.88194in</Top>
             <Left>0.25698in</Left>
-            <Height>1.29861in</Height>
+            <Height>1.66319in</Height>
             <Width>7.06183in</Width>
             <ZIndex>19</ZIndex>
             <Style>
@@ -1346,7 +1354,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox56</rd:DefaultName>
-              <Top>0.86979in</Top>
+              <Top>1.11979in</Top>
               <Left>0.25698in</Left>
               <Height>0.25in</Height>
               <Width>0.77082in</Width>
@@ -1379,7 +1387,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox56</rd:DefaultName>
-              <Top>0.86979in</Top>
+              <Top>1.11979in</Top>
               <Left>4.81598in</Left>
               <Height>0.25in</Height>
               <Width>0.77082in</Width>
@@ -1412,7 +1420,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>MngName</rd:DefaultName>
-              <Top>0.86979in</Top>
+              <Top>1.11979in</Top>
               <Left>5.65624in</Left>
               <Height>0.25in</Height>
               <Width>1in</Width>
@@ -1445,7 +1453,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>UserName</rd:DefaultName>
-              <Top>0.86979in</Top>
+              <Top>1.11979in</Top>
               <Left>1.09724in</Left>
               <Height>0.25in</Height>
               <Width>1in</Width>

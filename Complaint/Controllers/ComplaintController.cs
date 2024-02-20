@@ -33,11 +33,6 @@ namespace Complaint.Controllers
         //=========================================== Dashboard =============================================
         public IActionResult Home()
         {
-            List<VUser> VUsers = _db.VUsers.ToList();
-            ViewBag.VUsers = VUsers;
-
-            List<VForm> Vforms = _db.VForms.ToList();
-            ViewBag.VForm = Vforms;
 
             int StatusId0 = _db.VForms.Where(s => s.StatusId == 0).Count();
             ViewBag.StatusId0 = StatusId0;
@@ -157,6 +152,8 @@ namespace Complaint.Controllers
             dt.Columns.Add("EmpPosition", typeof(string));
             dt.Columns.Add("MngName", typeof(string));
             dt.Columns.Add("StatusName", typeof(string));
+            dt.Columns.Add("ImgSignature", typeof(string));
+            dt.Columns.Add("ImgSignatureMng", typeof(string));
 
             
                     dt.Rows.Add(
@@ -182,7 +179,9 @@ namespace Complaint.Controllers
                         VForms.EmpSection,
                         VForms.EmpPosition,
                         VForms.MngName,
-                        VForms.StatusName
+                        VForms.StatusName,
+                        getImageFromPath(Path.Combine(_webHostEnvironment.WebRootPath, VForms.ImgSignature)),
+                        getImageFromPath(Path.Combine(_webHostEnvironment.WebRootPath, VForms.ImgSignatureMng))
                     );
             return dt;
         }

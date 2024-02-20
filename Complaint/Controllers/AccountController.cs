@@ -44,7 +44,8 @@ namespace Complaint.Controllers
                         new Claim("RoleId", Users.RoleId),
                         new Claim("UserId", Users.UserId),
                         new Claim("StatusUsId", Users.StatusUsId),
-                        new Claim("ImgProfile", Users.ImgProfile)
+                        new Claim("ImgProfile", Users.ImgProfile),
+                        new Claim("ImgSignature", Users.ImgSignature)
                     };
 
             // สร้าง Identity ขึ้นมา

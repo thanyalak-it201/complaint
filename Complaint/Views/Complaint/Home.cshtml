@@ -3,7 +3,6 @@
 
 @section Styles {
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-
 }
 @{
     ViewData["Title"] = "Home Page";
@@ -23,7 +22,7 @@
             <h2>Complain</h2>
             <div class="main">
                 <!--แสดง สถานะ-->
-                    <div class="cardBox">
+                <div class="cardBox">
                     <div class="card">
                         <div class="row">
                             <div>
@@ -122,10 +121,8 @@ else
         });
 
         $(document).ready(function () {
-            // Call the function to update product count on page load
             updateProductCount();
 
-            // Function to update product count using Ajax
             function updateProductCount() {
                 $.ajax({
                     url: '@Url.Action("HomeCountAsync", "Complaint")',

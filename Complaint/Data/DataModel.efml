@@ -21,8 +21,8 @@
     </property>
   </class>
   <class name="Department" entity-set="Departments" table="Department" schema="dbo" p1:Guid="e05f5155-47fe-47fb-96b5-c38a91bdc8c2">
-    <id name="DepartmentId" type="Int32" p1:ValidateRequired="true" p1:Guid="05934458-a476-436f-ae4a-8566dcceac6b">
-      <column name="department_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="DepartmentId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="05934458-a476-436f-ae4a-8566dcceac6b">
+      <column name="department_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
     <property name="DepartmentName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="836efea4-ccf3-4e73-b48f-17c1214edb1f">
       <column name="department_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -38,10 +38,13 @@
     <property name="MngMail" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b9759922-2ca2-4125-a386-dd3faf21090d">
       <column name="Mng_mail" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
+    <property name="ImgSignatureMng" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e7d24d73-4570-487e-8384-ecb8c4aeb6ca">
+      <column name="ImgSignature_Mng" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
   </class>
   <class name="Position" entity-set="Positions" table="Position" schema="dbo" p1:Guid="be0d5ce8-a28d-4cd9-a234-7543eefa9f98">
-    <id name="PositionId" type="Int32" p1:ValidateRequired="true" p1:Guid="54e4a05a-7965-45cf-9278-a8f7dcb9465b">
-      <column name="position_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="PositionId" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="54e4a05a-7965-45cf-9278-a8f7dcb9465b">
+      <column name="position_Id" not-null="True" length="10" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
     <property name="PositionName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="2894a91d-e5e1-414e-8ba8-4cf971987f16">
       <column name="position_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -170,6 +173,9 @@
     <property name="ImgProfile" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="73195703-3f56-4be6-9380-2dd82b7d1b64">
       <column name="ImgProfile" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
+    <property name="ImgSignature" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="1541ff03-e383-4d79-b72f-36802ab1e7e0">
+      <column name="ImgSignature" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
   </class>
   <class name="VUser" entity-set="VUsers" table="VUser" schema="dbo" p1:Guid="23b93a10-89b4-46ff-af16-afa344b7b98e">
     <id name="UserId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="76c3cb50-96bd-47f1-9d0b-96162097fa02">
@@ -219,6 +225,9 @@
     </property>
     <property name="ImgProfile" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2c8a63e7-8960-41fe-a574-7f679b121b7c">
       <column name="ImgProfile" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="ImgSignature" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8960bc09-f104-4466-a058-7a94fba1d3b2">
+      <column name="ImgSignature" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
   </class>
   <class name="Form" entity-set="Forms" table="Form" schema="dbo" p1:Guid="ead0f6ac-4021-4da8-bcc1-c3bf5c7bff5a">
@@ -270,11 +279,17 @@
     <property name="UserId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8c649343-060e-4ec2-a448-81ec7e71ae73">
       <column name="User_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
     </property>
-    <property name="MgId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d857c811-dbf6-4043-b649-269c4a74f527">
-      <column name="Mg_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <property name="MngId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="6977e97f-2e88-48e1-be4c-ec77e6bf4f39">
+      <column name="Mng_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
     </property>
     <property name="StatusId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="00423167-f2e3-4db5-8637-8a047c9b1f40">
       <column name="Status_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ImgSignature" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="43e411a7-70c4-49be-9b44-26582e785681">
+      <column name="ImgSignature" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="ImgSignatureMng" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8c5a396d-9d14-4876-b6d1-2ab1f0b1f3ea">
+      <column name="ImgSignature_Mng" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
   </class>
   <class name="VForm" entity-set="VForms" table="VForm" schema="dbo" p1:Guid="c5f8a0c4-91f1-41eb-b6f9-2cd604a9de57">
@@ -329,26 +344,14 @@
     <property name="Note" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="74d359ac-6619-4c56-a3a0-ab276377b9a5">
       <column name="Note" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
-    <property name="EmpDepartment" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="46316a8b-f466-4378-a8a2-7d62074d08a6">
-      <column name="Emp_department" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
-    </property>
-    <property name="EmpSection" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="31fe79e0-7301-4b84-8465-54aadc3d1a90">
-      <column name="Emp_section" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
-    </property>
-    <property name="EmpPosition" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="24b7f69a-499b-45a8-aa40-748d25bb476c">
-      <column name="Emp_position" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
-    </property>
-    <property name="MngId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="beb658f8-6d73-40cf-b020-ea76c021035c">
-      <column name="Mng_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
-    </property>
     <property name="MngName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="005f51d9-f6df-4744-8ad5-0090fb3f18af">
       <column name="Mng_name" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
     <property name="MngMail" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="1c2ae8a9-f588-47a0-b38e-6654b8cadf39">
       <column name="Mng_mail" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
-    <property name="UserId" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="cfd490b3-f789-40c2-9dee-1a502c3ecb14">
-      <column name="User_Id" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
+    <property name="UserId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="cfd490b3-f789-40c2-9dee-1a502c3ecb14">
+      <column name="User_Id" not-null="False" length="50" precision="10" scale="0" sql-type="int" p1:unicode="False" />
     </property>
     <property name="UserName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2bd2fc67-bede-4f13-acc3-88650c9c24e9">
       <column name="User_name" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
@@ -368,17 +371,23 @@
     <property name="StatusName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="7f885e20-6aa9-4c07-8e7d-c770b52aca2b">
       <column name="Status_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
     </property>
-    <property name="Email" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="20eace8e-c8a8-4d74-8cc9-a87065a3e3ca">
-      <column name="email" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    <property name="ImgSignature" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7c0499b3-d034-4e2e-9162-b1ba1bf52996">
+      <column name="ImgSignature" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
-    <property name="Password" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="f2ce5657-7755-4ffc-9814-f32af3246c86">
-      <column name="password" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    <property name="MngId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ab8cef40-5c75-4b7b-a52b-4d648a0cbf0b">
+      <column name="Mng_Id" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
     </property>
-    <property name="DateLogin" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="bca6bd0d-eed7-4668-8fbe-29a501f1aa0d">
-      <column name="DateLogin" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
+    <property name="ImgSignatureMng" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8aa25e6a-f043-4bf9-9dc0-92b8daf2d628">
+      <column name="ImgSignature_Mng" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
-    <property name="RoleId" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="eeb36bcc-7189-4727-90de-6163c5442de0">
-      <column name="Role_Id" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
+    <property name="EmpDepartment" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="5bc958cd-9e47-4bcd-93b7-07dfbc0f2fac">
+      <column name="Emp_department" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="EmpSection" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2bf1d49a-722e-468e-8c32-2b8655b0f7e4">
+      <column name="Emp_section" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="EmpPosition" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ac04495e-a753-4612-b272-1c94bc524ad5">
+      <column name="Emp_position" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
     </property>
   </class>
   <class name="Role" entity-set="Roles" table="Role" schema="dbo" p1:Guid="805ddf8a-f7e8-4fd6-8f19-a6d5f96359ca">

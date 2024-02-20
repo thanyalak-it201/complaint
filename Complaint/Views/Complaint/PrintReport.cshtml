@@ -8,45 +8,45 @@
         <div class="padding">
             <embed id="pdfViewer" src="data:application/pdf;base64,@ViewBag.PDFData" width="100%" height="600px"/>
                 <form method="post" asp-controller="Complaint" asp-action="UpdateReport" enctype="multipart/form-data">
-                <input type="hidden" asp-for="FromId" name="Id" value="@ViewBag.Id" readonly />
-                    <div class="col-md-12 mt-2">
-                            <label asp-for="Note" for="Note" class="form-label">รายละเอียดเพิ่มเติม</label>
-                            <input asp-for="Note" type="text" id="bootstrap-maxlength-example2" rows="3" maxlength="255" class="form-control rounded-pill" />
-                    </div>
-                    <br />
-                    <center>
-                        <div id="RadioButtonGroup" role="group" aria-label="Basic checkbox toggle button group">
-                            @Html.RadioButton("StatusId", 1)
-                            <label>อนุมัติ</label>
-                            @Html.RadioButton("StatusId", 2)
-                            <label>ไม่อนุมัติ</label>
+                    <input type="hidden" asp-for="FromId" name="Id" value="@ViewBag.Id" readonly />
+                        <div class="col-md-12 mt-2">
+                                <label asp-for="Note" for="Note" class="form-label">รายละเอียดเพิ่มเติม</label>
+                                <input asp-for="Note" type="text" id="bootstrap-maxlength-example2" rows="3" maxlength="255" class="form-control rounded-pill" />
                         </div>
-                    </center>
-                    <!-- Button trigger modal -->
-                    <center>
-                        <div class="pt-4">
-                            <button type="button" class="btn btn-primary me-sm-3 me-1" data-toggle="modal" data-target="#exampleModalCenter">
-                                บันทึกข้อมูล
-                            </button>
-                        </div>
-                    </center>
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;System</h5>
-                                </div>
-                                <div class="modal-body" style="text-align: center;">
-                                    คุณต้องการบันทึกข้อมูลใช่หรือไม่ โปรดกดปุ่มยืนยันค่ะ
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
-                                    <button type="submit" value="Create" class="btn btn-success btn-sm">ยืนยัน</button>
+                        <br />
+                        <center>
+                            <div id="RadioButtonGroup" role="group" aria-label="Basic checkbox toggle button group">
+                                @Html.RadioButton("StatusId", 1)
+                                <label>อนุมัติ</label>
+                                @Html.RadioButton("StatusId", 2)
+                                <label>ไม่อนุมัติ</label>
+                            </div>
+                        </center>
+                        <!-- Button trigger modal -->
+                        <center>
+                            <div class="pt-4">
+                                <button type="button" class="btn btn-primary me-sm-3 me-1" data-toggle="modal" data-target="#exampleModalCenter">
+                                    บันทึกข้อมูล
+                                </button>
+                            </div>
+                        </center>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;System</h5>
+                                    </div>
+                                    <div class="modal-body" style="text-align: center;">
+                                        คุณต้องการบันทึกข้อมูลใช่หรือไม่ โปรดกดปุ่มยืนยันค่ะ
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
+                                        <button type="submit" value="Create" class="btn btn-success btn-sm">ยืนยัน</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </form>
         </div>
     </div>

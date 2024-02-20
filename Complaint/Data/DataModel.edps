@@ -129,26 +129,6 @@
     </Templates>
     <AttributeAssemblies />
     <UpdateFromDatabaseExcludes>
-      <Exclude Name="From_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="From_data" Table="dbo.Form" Type="Column" />
-      <Exclude Name="To_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="CC_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="From_name" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Costomer_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="lot" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Problem_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Problem_othet" Table="dbo.Form" Type="Column" />
-      <Exclude Name="number" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Price" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Co" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Type_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Image" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Note" Table="dbo.Form" Type="Column" />
-      <Exclude Name="User_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Mg_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="Status_Id" Table="dbo.Form" Type="Column" />
-      <Exclude Name="PK_Form" Table="dbo.Form" Type="Constraint" />
-      <Exclude Name="FK_Form_Problem_name" Table="dbo.Form" Type="Constraint" />
       <Exclude Name="Problem_Id" Table="dbo.Problem" Type="Column" />
       <Exclude Name="Problem_name" Table="dbo.Problem" Type="Column" />
       <Exclude Name="PK_Problem" Table="dbo.Problem" Type="Constraint" />
@@ -167,51 +147,28 @@
       <Exclude Name="section_name" Table="dbo.VEmployee" Type="Column" />
       <Exclude Name="position_Id" Table="dbo.VEmployee" Type="Column" />
       <Exclude Name="position_name" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="From_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="From_data" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="To_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="CC_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="From_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Costomer_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Costomer_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="lot" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="number" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Price" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Co" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Type_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Type_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Product_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Product_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Image" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Note" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Mng_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Mng_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Mng_mail" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Problem_othet" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Problem_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Problem_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Status_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Status_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="User_name" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Emp_department" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Emp_section" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Emp_position" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="User_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="email" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="password" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="DateLogin" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Role_Id" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Image" Table="dbo.Form" Type="Column" />
-      <Exclude Name="FK_Form_Problem_name" Table="dbo.Form" Type="Constraint" />
+      <Exclude Name="User_Id" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="email" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="password" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="DateLogin" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="Role_Id" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="Emp_department" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="Emp_section" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="Emp_position" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="User_name" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="Role_name" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="department_name" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="section_name" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="position_name" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="StatusUs_Id" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="StatusUS_name" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="ImgProfile" Table="dbo.VUser" Type="Column" />
+      <Exclude Name="ImgSignature" Table="dbo.VUser" Type="Column" />
       <Exclude Name="Problem_name" Table="dbo.Problem" Type="Column" />
       <Exclude Name="PK_VCostomer" Table="dbo.VCostomer" Type="Constraint" />
       <Exclude Name="Id" Table="dbo.VEmployee" Type="Column" />
       <Exclude Name="PK_VEmployee" Table="dbo.VEmployee" Type="Constraint" />
-      <Exclude Name="Image" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Emp_department" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Emp_section" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="Emp_position" Table="dbo.VForm" Type="Column" />
-      <Exclude Name="PK_VForm" Table="dbo.VForm" Type="Constraint" />
+      <Exclude Name="PK_VUser" Table="dbo.VUser" Type="Constraint" />
     </UpdateFromDatabaseExcludes>
   </ModelSettings>
 </EntityDeveloper>

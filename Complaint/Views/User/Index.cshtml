@@ -1,4 +1,4 @@
-﻿@model Complain.Models.VUser;
+﻿@model Complain.Models.User;
 @using SetCookie
 @{
     ViewData["Title"] = "Index User Page";
@@ -6,7 +6,6 @@
 @section Styles {
     <link rel="stylesheet" href="~/css/styles.css" />
 }
-
 
 <div class="container">
     <div class="padding">
@@ -36,8 +35,8 @@
                                                     <div class="modal-body">
                                                         <div class="form-group">
                                                             <label for="example-text-input" class="form-control-label">เลือกรูปภาพ</label>
-                                                            <input asp-for="ImgProfile" class="form-control" type="file">
-                                                            <input asp-for="ImgProfile" class="form-control" type="hidden" value="@User.GetLoggedInUserId()">
+                                                            <input type="hidden" asp-for="UserId" value="@User.GetLoggedInUserId()" />
+                                                            <input asp-for="ImgProfile" class="form-control" type="file" name="file">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -83,9 +82,8 @@
                                     </div>
                                 </div>
                             }
-                            </div>
-
                         </div>
+                    </div>
                     <div class="col">
                         @{
                             Complain.Models.VUser item = ViewBag.ListUserProfile;
@@ -101,53 +99,69 @@
                             </div>
                         </div>
                         <br />
-                            <div class="col-10">
-                                <div class="form-group row">
-                                    <div class="col-2 align-self-center">
-                                        <label class="fs-5">รหัสพนักงาน</label>
-                                    </div>
-                                    <div class="col align-self-center">
-                                        <input class="form-control rounded-pill" type="text" value="@item.UserId" disabled>
-                                    </div>
+                        <div class="col-10">
+                            <div class="form-group row">
+                                <div class="col-2 align-self-center">
+                                    <label class="fs-5">รหัสพนักงาน</label>
+                                </div>
+                                <div class="col align-self-center">
+                                    <input class="form-control rounded-pill" type="text" value="@item.UserId" disabled>
                                 </div>
                             </div>
-                            <br />
-                            <div class="col-10">
-                                <div class="form-group row">
-                                    <div class="col-2 align-self-center">
-                                        <label class="fs-5">ตำแหน่ง</label>
-                                    </div>
-                                    <div class="col align-self-center">
-                                        <input class="form-control rounded-pill" type="text" value="@item.PositionName" disabled>
-                                    </div>
+                        </div>
+                        <br />
+                        <div class="col-10">
+                            <div class="form-group row">
+                                <div class="col-2 align-self-center">
+                                    <label class="fs-5">ตำแหน่ง</label>
+                                </div>
+                                <div class="col align-self-center">
+                                    <input class="form-control rounded-pill" type="text" value="@item.PositionName" disabled>
                                 </div>
                             </div>
-                            <br />
-                            <div class="col-10">
-                                <div class="form-group row">
-                                    <div class="col-2 align-self-center">
-                                        <label class="fs-5">แผนกงาน</label>
-                                    </div>
-                                    <div class="col align-self-center">
-                                        <input class="form-control rounded-pill" type="text" value="@item.SectionName" disabled>
-                                    </div>
+                        </div>
+                        <br />
+                        <div class="col-10">
+                            <div class="form-group row">
+                                <div class="col-2 align-self-center">
+                                    <label class="fs-5">แผนกงาน</label>
+                                </div>
+                                <div class="col align-self-center">
+                                    <input class="form-control rounded-pill" type="text" value="@item.SectionName" disabled>
                                 </div>
                             </div>
-                            <br />
-                            <div class="col-10">
-                                <div class="form-group row">
-                                    <div class="col-2 align-self-center">
-                                        <label class="fs-5">ฝ่าย</label>
-                                    </div>
-                                    <div class="col align-self-center">
-                                        <input class="form-control rounded-pill" type="text" value="@item.DepartmentName" disabled>
-                                    </div>
+                        </div>
+                        <br />
+                        <div class="col-10">
+                            <div class="form-group row">
+                                <div class="col-2 align-self-center">
+                                    <label class="fs-5">ฝ่าย</label>
+                                </div>
+                                <div class="col align-self-center">
+                                    <input class="form-control rounded-pill" type="text" value="@item.DepartmentName" disabled>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <br />
+                <div class="row">
+                    <div class="col-5"></div>
+                    <div class="col-3">
+                        <div class="">
+                            <img src="~/@User.GetLoggedInImgSignature()" alt="Profile Picture" class="w-100">
+                            @* <a data-toggle="modal" data-target="#UploadImgeSignature" class="edit-button-2" style="font-size: 35px;">
+                                <i class="fa fa-file-image-o" aria-hidden="true"></i>
+                                <ion-icon name="camera-outline"></ion-icon>
+                            </a> *@
+                            @* <label asp-for="ImgSignature" for="ImgSignature" class="form-label">อัปโหลดลายเซ็น</label>
+                            <input asp-for="ImgSignature" class="form-control rounded-pill" type="file" name="file"> *@
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

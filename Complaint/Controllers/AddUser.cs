@@ -2,6 +2,7 @@
 using Complain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.ReportingServices.ReportProcessing.ReportObjectModel;
 
 namespace Complaint.Controllers
 {
@@ -56,15 +57,31 @@ namespace Complaint.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateF(User obj )
+        public IActionResult CreateF(Complain.Models.User obj, IFormFile profileImage, IFormFile signatureImage)
         {
             obj.StatusUsId = "0";
 
-            var imagesFolderPath = Path.Combine("img", "Profile", "imgProfile.jpg");
-            obj.ImgProfile = imagesFolderPath;
+            var profileImagePath = Path.Combine("img", "Profile", "imgProfile.jpg");
+            obj.ImgProfile = profileImagePath;
+
+            if (signatureImage != null && signatureImage.Length > 0)
+            {
+                var signatureFileName = Path.GetFileNameWithoutExtension(signatureImage.FileName);
+                var signatureFileExtension = Path.GetExtension(signatureImage.FileName);
+                var signatureImagePath = Path.Combine("wwwroot", "img", "Signature", $"{signatureFileName}{signatureFileExtension}");
+
+                using (var signatureStream = new FileStream(signatureImagePath, FileMode.Create))
+                {
+                    signatureImage.CopyTo(signatureStream);
+                }
+
+                obj.ImgSignature = Path.Combine("img", "Signature", $"{signatureFileName}{signatureFileExtension}");
+            }
+            
 
             _db.Users.Add(obj);
             _db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 

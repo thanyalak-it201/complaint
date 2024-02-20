@@ -36,6 +36,14 @@ namespace SetCookie
 
             return principal.FindFirst("ImgProfile").Value.ToString();
         }
+
+        public static string GetLoggedInImgSignature(this ClaimsPrincipal principal)
+        {
+            if (principal == null)
+                throw new ArgumentNullException(nameof(principal));
+
+            return principal.FindFirst("ImgSignature").Value.ToString();
+        }
     }
     
 }

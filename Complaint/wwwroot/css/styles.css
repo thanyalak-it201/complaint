@@ -47,6 +47,26 @@
     background-color: #334eac; /* สีที่เปลี่ยนเมื่อเมาส์ผ่านไป */
 }
 
+.edit-button-2 {
+    position: absolute;
+    bottom: 0px;
+    left: 280px;
+    background-color: #a9b1bc; /* สีของปุ่มแก้ไข */
+    color: white;
+    border: none;
+    padding: 5px 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    /* อนิเมชันเมื่อเมาส์ผ่านไปบนปุ่ม */
+    .edit-button-2:hover {
+        background-color: #334eac; /* สีที่เปลี่ยนเมื่อเมาส์ผ่านไป */
+    }
+
 /* =============== Globals ============== */
 * {
     font-family: "Ubuntu", sans-serif;

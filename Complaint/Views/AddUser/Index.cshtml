@@ -12,9 +12,9 @@
     <div class="h2 font-weight-bold">ตั้งค่าผู้ใช้งาน</div>
     <br />
         <a asp-action="Create" asp-controller="AddUser" type="button" class="btn btn-primary me-sm-3 me-1 rounded-pill">เพิ่มผู้ใช้งาน</a>
-    
     <br />
     <br />
+
     <table id="myTable" class="display" style="width: 100%; padding: 10px">
         <thead>
             <tr>
@@ -82,8 +82,6 @@
                             </a>
                         }
                     </td>
-
-
                     <td class="pt-3 text-s text-center" style="background : white">
                         <a asp-controller="AddUser" asp-action="Delete" asp-route-id="@item.UserId">
                             <img src="~/img/ลบ.png" style="width: 35%; height: 35%;" />
@@ -93,31 +91,31 @@
             }
         </tbody>
     </table>
-                <!-- Modal -->
-                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="editModalLabel"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;แก้ไขสิทธิ์ผู้ใช้งาน</h5>
-                            </div>
-                            <form id="editForm" method="post" asp-controller="AddUser" asp-action="Update">
-                                <div class="modal-body" style="text-align: center;">
-                                    <div id="editFormContent">
-                                        <input type="hidden" asp-for="UserId" value ="@ViewBag.Id" name="UserId" readonly/>
-                                        <label asp-for="RoleId" for="RoleId" class="form-label">ตำแหน่ง</label>
-                                        <select asp-for="RoleId" asp-items="ViewBag.Role" class="select2 form-select rounded-pill" id="RoleIdSelect">
-                                            <option>เลือก</option>
-                                        </select>        
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
-                                    <button type="submit" value="Update" class="btn btn-success btn-sm">ยืนยัน</button>
-                                </div>
-                            </form>
+    <!-- Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel"><i class="fa fa-cog" aria-hidden="true"></i>&nbsp;&nbsp;แก้ไขสิทธิ์ผู้ใช้งาน</h5>
+                </div>
+                <form id="editForm" method="post" asp-controller="AddUser" asp-action="Update">
+                    <div class="modal-body" style="text-align: center;">
+                        <div id="editFormContent">
+                            <input type="hidden" asp-for="UserId" value ="@ViewBag.Id" name="UserId"/>
+                            <label asp-for="RoleId" for="RoleId" class="form-label">ตำแหน่ง</label>
+                            <select asp-for="RoleId" asp-items="ViewBag.Role" class="select2 form-select rounded-pill" id="RoleIdSelect">
+                                <option></option>
+                            </select>        
                         </div>
                     </div>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" value="Update" class="btn btn-success btn-sm">ยืนยัน</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 </div>

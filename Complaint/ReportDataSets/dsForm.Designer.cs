@@ -325,6 +325,10 @@ namespace Complaint.ReportDataSets {
             
             private global::System.Data.DataColumn columnUserId;
             
+            private global::System.Data.DataColumn columnImgSignature;
+            
+            private global::System.Data.DataColumn columnImgSignatureMng;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public dsFormDataTable() {
@@ -544,6 +548,22 @@ namespace Complaint.ReportDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ImgSignatureColumn {
+                get {
+                    return this.columnImgSignature;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ImgSignatureMngColumn {
+                get {
+                    return this.columnImgSignatureMng;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -602,7 +622,9 @@ namespace Complaint.ReportDataSets {
                         string EmpPosition, 
                         string MngName, 
                         string StatusName, 
-                        string UserId) {
+                        string UserId, 
+                        string ImgSignature, 
+                        string ImgSignatureMng) {
                 dsFormRow rowdsFormRow = ((dsFormRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         FromId,
@@ -627,7 +649,9 @@ namespace Complaint.ReportDataSets {
                         EmpPosition,
                         MngName,
                         StatusName,
-                        UserId};
+                        UserId,
+                        ImgSignature,
+                        ImgSignatureMng};
                 rowdsFormRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsFormRow);
                 return rowdsFormRow;
@@ -673,6 +697,8 @@ namespace Complaint.ReportDataSets {
                 this.columnMngName = base.Columns["MngName"];
                 this.columnStatusName = base.Columns["StatusName"];
                 this.columnUserId = base.Columns["UserId"];
+                this.columnImgSignature = base.Columns["ImgSignature"];
+                this.columnImgSignatureMng = base.Columns["ImgSignatureMng"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -724,6 +750,10 @@ namespace Complaint.ReportDataSets {
                 base.Columns.Add(this.columnStatusName);
                 this.columnUserId = new global::System.Data.DataColumn("UserId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUserId);
+                this.columnImgSignature = new global::System.Data.DataColumn("ImgSignature", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImgSignature);
+                this.columnImgSignatureMng = new global::System.Data.DataColumn("ImgSignatureMng", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImgSignatureMng);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_dsForm");
                 this.ExtendedProperties.Add("Generator_UserTableName", "dsForm");
             }
@@ -1236,6 +1266,38 @@ namespace Complaint.ReportDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ImgSignature {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsForm.ImgSignatureColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImgSignature\' in table \'dsForm\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsForm.ImgSignatureColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ImgSignatureMng {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsForm.ImgSignatureMngColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ImgSignatureMng\' in table \'dsForm\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsForm.ImgSignatureMngColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsFromIdNull() {
                 return this.IsNull(this.tabledsForm.FromIdColumn);
             }
@@ -1508,6 +1570,30 @@ namespace Complaint.ReportDataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetUserIdNull() {
                 this[this.tabledsForm.UserIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsImgSignatureNull() {
+                return this.IsNull(this.tabledsForm.ImgSignatureColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetImgSignatureNull() {
+                this[this.tabledsForm.ImgSignatureColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsImgSignatureMngNull() {
+                return this.IsNull(this.tabledsForm.ImgSignatureMngColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetImgSignatureMngNull() {
+                this[this.tabledsForm.ImgSignatureMngColumn] = global::System.Convert.DBNull;
             }
         }
         
