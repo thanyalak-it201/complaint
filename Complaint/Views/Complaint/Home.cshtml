@@ -6,12 +6,15 @@
 }
 @{
     ViewData["Title"] = "Home Page";
-}
 
-@{
     var userIdCookie = Context.Request.Cookies["UserName"];
     // ตรวจสอบว่าคุกกี้ "UserId" มีค่าหรือไม่
     var hasUserIdCookie = !string.IsNullOrEmpty(userIdCookie);
+}
+@{
+    var problemsData = (Dashboard)ViewBag.ProblemsData;
+    var labels = problemsData?.ListProblem?.Select(p => p.NameProblem).ToList();
+    var counts = problemsData?.ListProblem?.Select(p => p.CountProblem).ToList();
 }
 
 
@@ -76,6 +79,12 @@
                     </div>
                 </div>
                 <!--แสดง สถานะ-->
+
+                <!-- ================ Add Charts JS ================= -->
+                <div class="chartsBx">
+                    <div class="chart"><canvas id="myChart"></canvas> </div>
+                    <div class="chart"><canvas id="chart-2"></canvas> </div>
+                </div>
             </div>
         </div>
     </div>
@@ -89,53 +98,47 @@ else
 @section Scripts
 {
     <!-- =========== Scripts =========  -->
-    <script src="assets/js/main.js"></script>
+    <script src="~/js/main.js"></script>
 
     <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <!-- ======= Charts JS ====== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    @* <script src="~/js/chartsjs.js"></script> *@
     <script>
-        $(document).ready(function () {
-            $('#myTable').DataTable({
-                searching: true,
-                columnDefs: [
-                    {
-                        targets: [2, 6],
-                        render: function (data, type, row) {
-                            // แปลงวันที่ให้เป็นรูปแบบของ DataTables (เฉพาะวันที่)
-                            return new Date(data).toLocaleDateString();
-                        }
-                    }
-                ],
-                "paging": false,
-                "fnInitComplete": function () {
-                    var myCustomScrollbar = document.querySelector('#dt-horizontal-scroll_wrapper .dataTables_scrollBody');
-                    var ps = new PerfectScrollbar(myCustomScrollbar);
-                },
-                "scrollY": 500,
-                "scrollX": false,
-            });
-        });
-
-        $(document).ready(function () {
-            updateProductCount();
-
-            function updateProductCount() {
-                $.ajax({
-                    url: '@Url.Action("HomeCountAsync", "Complaint")',
-                    type: 'GET',
-                    success: function (data) {
-                        $('#productCount').text('Total Products: ' + data);
-                    },
-                    error: function () {
-                        $('#productCount').text('Error retrieving product count.');
-                    }
-                });
+        
+        // ============================================ Chart ==============================================
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: @Html.Raw(Json.Serialize(labels)),
+                datasets: [{
+                    label: 'Problem Counts',
+                    data: @Html.Raw(Json.Serialize(counts)),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
             }
         });
-
     </script>
 }
+    
+
+
+    
+    

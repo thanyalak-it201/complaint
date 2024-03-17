@@ -9,10 +9,12 @@ using Microsoft.Reporting.NETCore;
 using System.Data;
 using System.Drawing.Imaging;
 using System.Drawing;
+using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.ViewEngines;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Complaint.Models;
 
 namespace Complaint.Controllers
 {
@@ -34,20 +36,37 @@ namespace Complaint.Controllers
         public IActionResult Home()
         {
 
-            int StatusId0 = _db.VForms.Where(s => s.StatusId == 0).Count();
-            ViewBag.StatusId0 = StatusId0;
-            
-            int StatusId1 = _db.VForms.Where(s => s.StatusId == 1).Count();
-            ViewBag.StatusId1 = StatusId1;
-            
-            int StatusId2 = _db.VForms.Where(s => s.StatusId == 2).Count();
-            ViewBag.StatusId2 = StatusId2;
-            
-            int StatusId3 = _db.VForms.Where(s => s.StatusId == 3).Count();
-            ViewBag.StatusId3 = StatusId3;
+            ViewBag.StatusId0 = _db.VForms.Count(s => s.StatusId == 0);
+            ViewBag.StatusId1 = _db.VForms.Count(s => s.StatusId == 1);
+            ViewBag.StatusId2 = _db.VForms.Count(s => s.StatusId == 2);
+            ViewBag.StatusId3 = _db.VForms.Count(s => s.StatusId == 3);
 
             return View();
         }
+        public IActionResult HomeCustomerData()
+        {
+            var ProblemsData = new Dashboard();
+            ProblemsData.ListProblem = new List<ProblemResponse>();
+
+            var topProblems = _db.VForms
+                                 .GroupBy(s => s.ProblemId)
+                                 .OrderByDescending(g => g.Count())
+                                 .Take(3)
+                                 .Select(g => new ProblemResponse
+                                 {
+                                     NameProblem = g.First().ProblemName, 
+                                     CountProblem = g.Count()
+                                 })
+                                 .ToList();
+
+            ProblemsData.ListProblem.AddRange(topProblems);
+
+            ViewBag.ProblemsData = ProblemsData;
+
+
+            return View();
+        }
+
 
         //=========================================== Index =================================================
         public IActionResult Index()
@@ -181,7 +200,7 @@ namespace Complaint.Controllers
                         VForms.MngName,
                         VForms.StatusName,
                         getImageFromPath(Path.Combine(_webHostEnvironment.WebRootPath, VForms.ImgSignature)),
-                        getImageFromPath(Path.Combine(_webHostEnvironment.WebRootPath, VForms.ImgSignatureMng))
+                        (VForms.StatusName == "อนุมัติ" ? getImageFromPath(Path.Combine(_webHostEnvironment.WebRootPath, VForms.ImgSignatureMng)): "" )
                     );
             return dt;
         }
@@ -249,6 +268,12 @@ namespace Complaint.Controllers
 
                 // กำหนดเส้นทางไฟล์ให้กับ property ImagePath ของ obj
                 obj.Image = imagePath;
+            }
+            else
+            {
+                var ImagePath = Path.Combine("images", "default-img.png");
+                obj.Image = ImagePath;
+                _db.SaveChanges();
             }
 
             _db.Forms.Add(obj);
@@ -347,11 +372,16 @@ namespace Complaint.Controllers
 
                 // กำหนดเส้นทางไฟล์ให้กับ property ImagePath ของ obj
                 obj.Image = Path.Combine("images", $"{fileName}{fileExtension}");
-                _db.SaveChanges();
+            }
+            else
+            {
+                var ImagePath = Path.Combine("images", "default-img.png");
+                obj.Image = ImagePath;
             }
 
             _db.Forms.Update(obj);
-            Boolean result = _db.SaveChanges() > 0;
+            ////var existingObj = _db.Forms.FirstOrDefault(s => s.FromId == obj.FromId);
+            _db.SaveChanges(); // บันทึกการเปลี่ยนแปลง
             return RedirectToAction(nameof(Index));
         }
 

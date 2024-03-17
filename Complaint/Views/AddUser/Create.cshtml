@@ -18,7 +18,7 @@
         <div class="padding">
             <h2>Create Account</h2>
             <p></p>
-            <form method="post" asp-controller="AddUser" asp-action="CreateF">
+            <form method="post" asp-controller="AddUser" asp-action="CreateF" enctype="multipart/form-data">
                 <div class="col-md-6">
                     <div>
                         <label asp-for="UserId" for="UserId" class="form-label">รหัสพนักงาน</label>
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="col-md-8 mb-auto">
-                            <label asp-for="ImgSignature" for="ImgSignature" class="form-label">อัปโหลดลายเซ็น</label>
+                            <label asp-for="ImgSignature" for="file" class="form-label">อัปโหลดลายเซ็น</label>
                             <input asp-for="ImgSignature" class="form-control rounded-pill" type="file" name="file">
                         </div>
                     </div>

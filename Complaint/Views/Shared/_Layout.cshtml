@@ -8,8 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]Complaint</title>
-    <!-- css -->
+    <!-- css/js -->
     <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="~/js/main.js" rel="stylesheet" />
     <!-- Core CSS -->
     <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <!-- stylesTable -->
@@ -23,6 +24,8 @@
         var userIdCookie = Context.Request.Cookies["UserName"];
         // ตรวจสอบว่าคุกกี้ "UserId" มีค่าหรือไม่
         var hasUserIdCookie = !string.IsNullOrEmpty(userIdCookie);
+
+        string SureActive = ViewContext.HttpContext.Request.Path;
     }
 
     @if (hasUserIdCookie)
@@ -38,13 +41,13 @@
                             <span class="title">Complaint</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="@(SureActive.StartsWith("/Complaint/Home") ? "active hovered" :  "")">
                         <a asp-action="Home" asp-controller="Complaint">
                             <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
                             <span class="title">หน้าหลัก</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="@(SureActive.StartsWith("/Complaint/Index") ? "active hovered" :  "")">
                         <a asp-action="Index" asp-controller="Complaint">
                             <span class="icon"><ion-icon name="folder-outline"></ion-icon></span>
                             <span class="title">รายการข้อร้องเรียน</span>
@@ -56,7 +59,7 @@
 
                     @if (loggedInRoles.Contains("1") || loggedInRoles.Contains("2"))
                     {
-                        <li>
+                        <li class="@(SureActive.StartsWith("/Complaint/Create") ? "active hovered" :  "")">
                             <a asp-action="Create" asp-controller="Complaint">
                                 <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
                                 <span class="title">แบบรับข้อร้องเรียนลูกค้า</span>
@@ -64,7 +67,7 @@
                         </li>
                     @if (loggedInRoles.Contains("1"))
                     {
-                        <li>
+                        <li class="@(SureActive.StartsWith("/AddUser/Index") ? "active hovered" :  "")">
                             <a asp-action="Index" asp-controller="AddUser">
                                 <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
                                 <span class="title">ผู้ใช้งาน</span>
@@ -72,20 +75,20 @@
                         </li>
                     }
                     }
-                    <li>
+                    <li class="@(SureActive.StartsWith("/User/Index") ? "active hovered" :  "")">
                         <a asp-action="Index" asp-controller="User">
                             <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
                             <span class="title">บัญชีของฉัน</span>
                         </a>
                     </li>
-                    <li>
-                        <a asp-action="Index" asp-controller="User">
+                    <li class="@(SureActive.StartsWith("/User/Edit") ? "active hovered" :  "")">
+                        <a asp-action="Edit" asp-controller="User">
                             <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
                             <span class="title">ช่วยเหลือ</span>
                         </a>
                     </li>
 
-                    <li>
+                    <li class="@(SureActive.StartsWith("/Account/Logout") ? "active hovered" :  "")">
                         <a asp-controller="Account" asp-action="Logout">
                             <span  class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
                             <span class="title" aria-hidden="true">ออกจากระบบ</span>
@@ -97,15 +100,15 @@
                 <div class="main">
                     <div class="topbar">
                         <div class="toggle">
-                                <ion-icon name="notifications-outline"></ion-icon>
-                                <h6>
-                                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                        @ViewBag.StatusId0
-                                        <span class="visually-hidden">unread messages</span>
-                                    </span>
-                                </h6>
-                        </div>
+                            <ion-icon name="notifications-outline"></ion-icon>
+                            <h6>
+                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    @ViewBag.StatusId0
+                                    <span class="visually-hidden">unread messages</span>
+                                </span>
+                            </h6>
 
+                        </div>
                         <div class="user">
                             <img src="~/@User.GetLoggedInImgProfile()" alt="">
                         </div>
@@ -119,39 +122,14 @@
             @RenderBody()
         </div>
         @await RenderSectionAsync("Scripts", required: false)
-    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+
+        
+    </script>
+
 </body>
 </html>
 
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script>
-
-    let list = document.querySelectorAll('.list');
-    let menuToggle = document.querySelector('.toggle');
-    let navigation = document.querySelector('.navigation');
-
-    for (let i = 0; i < list.length; i++) {
-        list[i].onclick = function () {
-            console.log('Clicked on list item', i);
-
-            let targetUrl = list[i].querySelector('a').getAttribute('href');
-            console.log('Target URL:', targetUrl);
-
-            window.location.href = targetUrl;
-
-            // ปิดเมนู
-            menuToggle.classList.remove('active');
-            navigation.classList.remove('active');
-
-            // ปรับ class ของทุก list เพื่อให้ถูกเลือกเฉพาะตัวนี้
-            let j = 0;
-            while (j < list.length) {
-                list[j++].className = 'list';
-            }
-            list[i].className = 'list active';
-        }
-    }
-
-
-</script>

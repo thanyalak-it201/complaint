@@ -67,8 +67,8 @@
     </property>
   </class>
   <class name="Section" entity-set="Sections" table="Section" schema="dbo" p1:Guid="37a6df4f-ea90-41e1-8cc7-f75518ad0cca">
-    <id name="SectionId" type="Int32" p1:ValidateRequired="true" p1:Guid="b5149c67-c914-4ce8-8667-9f6ed0bb7f0b">
-      <column name="section_Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    <id name="SectionId" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="b5149c67-c914-4ce8-8667-9f6ed0bb7f0b">
+      <column name="section_Id" not-null="True" length="50" precision="10" scale="0" sql-type="nvarchar" p1:unicode="True" />
     </id>
     <property name="SectionName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="fb29fce5-9714-4eda-b0da-cbaa6c5bea52">
       <column name="section_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
@@ -388,6 +388,15 @@
     </property>
     <property name="EmpPosition" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ac04495e-a753-4612-b272-1c94bc524ad5">
       <column name="Emp_position" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="DepartmentName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="72a95f51-0ac9-4b33-8f13-eeb809f727b4">
+      <column name="department_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="PositionName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="61ee3d5b-c0a7-4148-b085-a9dbdb8c476a">
+      <column name="position_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="SectionName" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="8509724f-008d-4e20-85d8-384b63cfc8bf">
+      <column name="section_name" not-null="False" length="50" sql-type="nvarchar" p1:unicode="True" />
     </property>
   </class>
   <class name="Role" entity-set="Roles" table="Role" schema="dbo" p1:Guid="805ddf8a-f7e8-4fd6-8f19-a6d5f96359ca">

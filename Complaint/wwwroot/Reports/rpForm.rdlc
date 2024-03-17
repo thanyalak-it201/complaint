@@ -224,7 +224,7 @@
             <Top>0.19791in</Top>
             <Left>0.74305in</Left>
             <Height>0.25in</Height>
-            <Width>6.57574in</Width>
+            <Width>6.51265in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -259,7 +259,7 @@
             <Top>0.51736in</Top>
             <Left>0.84722in</Left>
             <Height>0.25in</Height>
-            <Width>6.47158in</Width>
+            <Width>6.40848in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -470,7 +470,7 @@
             <Top>0.8368in</Top>
             <Left>4.54861in</Left>
             <Height>0.25in</Height>
-            <Width>2.7702in</Width>
+            <Width>2.70709in</Width>
             <ZIndex>9</ZIndex>
             <Style>
               <Border>
@@ -521,7 +521,7 @@
             <Top>0.12847in</Top>
             <Left>0.25696in</Left>
             <Height>0in</Height>
-            <Width>7.06184in</Width>
+            <Width>6.99874in</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -622,7 +622,7 @@
             <Top>1.47569in</Top>
             <Left>4.81598in</Left>
             <Height>0.25in</Height>
-            <Width>2.50283in</Width>
+            <Width>2.43972in</Width>
             <ZIndex>14</ZIndex>
             <Style>
               <Border>
@@ -688,8 +688,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
-            <Top>2.5625in</Top>
-            <Left>0.25697in</Left>
+            <Top>2.0625in</Top>
+            <Left>0.257in</Left>
             <Height>0.25in</Height>
             <Width>2.65625in</Width>
             <ZIndex>16</ZIndex>
@@ -721,10 +721,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Note</rd:DefaultName>
-            <Top>4.61458in</Top>
-            <Left>0.25698in</Left>
-            <Height>0.71875in</Height>
-            <Width>7.06181in</Width>
+            <Top>4.18749in</Top>
+            <Left>0.25703in</Left>
+            <Height>0.23958in</Height>
+            <Width>6.99867in</Width>
             <ZIndex>17</ZIndex>
             <Style>
               <Border>
@@ -759,7 +759,7 @@
             <Top>1.15625in</Top>
             <Left>4.67361in</Left>
             <Height>0.25in</Height>
-            <Width>2.64519in</Width>
+            <Width>2.58209in</Width>
             <ZIndex>18</ZIndex>
             <Style>
               <Border>
@@ -776,25 +776,25 @@
             <Value>=First(Fields!Image.Value, "dsForm")</Value>
             <MIMEType>image/png</MIMEType>
             <Sizing>FitProportional</Sizing>
-            <Top>2.88194in</Top>
-            <Left>0.25698in</Left>
+            <Top>2.38194in</Top>
+            <Left>0.25703in</Left>
             <Height>1.66319in</Height>
-            <Width>7.06183in</Width>
+            <Width>6.99867in</Width>
             <ZIndex>19</ZIndex>
             <Style>
               <Border>
-                <Style>None</Style>
+                <Style>Solid</Style>
               </Border>
             </Style>
           </Image>
         </ReportItems>
-        <Height>5.95833in</Height>
+        <Height>12.03853cm</Height>
         <Style />
       </Body>
-      <Width>7.65153in</Width>
+      <Width>18.90572cm</Width>
       <Page>
         <PageHeader>
-          <Height>2.64458in</Height>
+          <Height>6.05577cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -818,7 +818,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox32</rd:DefaultName>
-              <Top>1.56125in</Top>
+              <Top>1.31125in</Top>
               <Left>0.25696in</Left>
               <Height>0.25in</Height>
               <Width>0.41666in</Width>
@@ -847,13 +847,13 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox32</rd:DefaultName>
-              <Top>1.2093in</Top>
-              <Left>3.32862in</Left>
+              <Top>0.9593in</Top>
+              <Left>2.95362in</Left>
               <Height>0.25in</Height>
               <Width>1.77083in</Width>
               <ZIndex>1</ZIndex>
@@ -887,7 +887,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox32</rd:DefaultName>
-              <Top>1.88069in</Top>
+              <Top>1.63069in</Top>
               <Left>0.25696in</Left>
               <Height>0.25in</Height>
               <Width>0.41666in</Width>
@@ -922,7 +922,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox32</rd:DefaultName>
-              <Top>2.20014in</Top>
+              <Top>1.95014in</Top>
               <Left>0.25694in</Left>
               <Height>0.25in</Height>
               <Width>0.63541in</Width>
@@ -957,8 +957,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox32</rd:DefaultName>
-              <Top>1.56125in</Top>
-              <Left>5.92645in</Left>
+              <Top>1.31125in</Top>
+              <Left>5.67645in</Left>
               <Height>0.25in</Height>
               <Width>0.41666in</Width>
               <ZIndex>4</ZIndex>
@@ -993,7 +993,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>FromData</rd:DefaultName>
-              <Top>1.56125in</Top>
+              <Top>1.31125in</Top>
               <Left>0.74306in</Left>
               <Height>0.25in</Height>
               <Width>1.93056in</Width>
@@ -1026,7 +1026,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox31</rd:DefaultName>
-              <Top>0.3968in</Top>
+              <Top>0.1468in</Top>
               <Left>1.36805in</Left>
               <Height>0.25in</Height>
               <Width>3.41889in</Width>
@@ -1071,7 +1071,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox43</rd:DefaultName>
-              <Top>0.6468in</Top>
+              <Top>0.3968in</Top>
               <Left>1.36805in</Left>
               <Height>0.47in</Height>
               <Width>3.41889in</Width>
@@ -1090,7 +1090,7 @@
               <Source>Embedded</Source>
               <Value>logo1</Value>
               <Sizing>FitProportional</Sizing>
-              <Top>0.3968in</Top>
+              <Top>0.1468in</Top>
               <Left>0.25694in</Left>
               <Height>0.71181in</Height>
               <Width>1.11111in</Width>
@@ -1143,8 +1143,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox44</rd:DefaultName>
-              <Top>0.3968in</Top>
-              <Left>5.92645in</Left>
+              <Top>0.1468in</Top>
+              <Left>5.67645in</Left>
               <Height>0.52208in</Height>
               <Width>1.39234in</Width>
               <ZIndex>9</ZIndex>
@@ -1178,8 +1178,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>FromId</rd:DefaultName>
-              <Top>1.56125in</Top>
-              <Left>6.41255in</Left>
+              <Top>1.31125in</Top>
+              <Left>6.16255in</Left>
               <Height>0.25in</Height>
               <Width>0.90624in</Width>
               <ZIndex>10</ZIndex>
@@ -1211,7 +1211,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>MngName1</rd:DefaultName>
-              <Top>1.88069in</Top>
+              <Top>1.63069in</Top>
               <Left>0.74305in</Left>
               <Height>0.25in</Height>
               <Width>1in</Width>
@@ -1244,7 +1244,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>MngName2</rd:DefaultName>
-              <Top>2.20014in</Top>
+              <Top>1.95014in</Top>
               <Left>0.96179in</Left>
               <Height>0.25in</Height>
               <Width>1in</Width>
@@ -1267,7 +1267,7 @@
           </Style>
         </PageHeader>
         <PageFooter>
-          <Height>1.66667in</Height>
+          <Height>5.59593cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -1289,7 +1289,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox56</rd:DefaultName>
-              <Top>0.10417in</Top>
+              <Top>0.125in</Top>
               <Left>0.25698in</Left>
               <Height>0.25in</Height>
               <Width>2.65624in</Width>
@@ -1354,8 +1354,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox56</rd:DefaultName>
-              <Top>1.11979in</Top>
-              <Left>0.25698in</Left>
+              <Top>1.24826in</Top>
+              <Left>0.40219in</Left>
               <Height>0.25in</Height>
               <Width>0.77082in</Width>
               <ZIndex>2</ZIndex>
@@ -1387,8 +1387,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox56</rd:DefaultName>
-              <Top>1.11979in</Top>
-              <Left>4.81598in</Left>
+              <Top>1.24826in</Top>
+              <Left>4.67361in</Left>
               <Height>0.25in</Height>
               <Width>0.77082in</Width>
               <ZIndex>3</ZIndex>
@@ -1416,14 +1416,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>MngName</rd:DefaultName>
-              <Top>1.11979in</Top>
-              <Left>5.65624in</Left>
+              <Top>1.24826in</Top>
+              <Left>5.51387in</Left>
               <Height>0.25in</Height>
-              <Width>1in</Width>
+              <Width>1.34406in</Width>
               <ZIndex>4</ZIndex>
               <Style>
                 <Border>
@@ -1449,14 +1451,16 @@
                       </Style>
                     </TextRun>
                   </TextRuns>
-                  <Style />
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>UserName</rd:DefaultName>
-              <Top>1.11979in</Top>
-              <Left>1.09724in</Left>
+              <Top>1.24826in</Top>
+              <Left>1.24245in</Left>
               <Height>0.25in</Height>
-              <Width>1in</Width>
+              <Width>1.21906in</Width>
               <ZIndex>5</ZIndex>
               <Style>
                 <Border>
@@ -1468,6 +1472,38 @@
                 <PaddingBottom>2pt</PaddingBottom>
               </Style>
             </Textbox>
+            <Image Name="Image7">
+              <Source>Database</Source>
+              <Value>=First(Fields!ImgSignature.Value, "dsForm")</Value>
+              <MIMEType>image/png</MIMEType>
+              <Sizing>Fit</Sizing>
+              <Top>0.67014in</Top>
+              <Left>1.08679in</Left>
+              <Height>0.52257in</Height>
+              <Width>1.47889in</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Image Name="Image8">
+              <Source>Database</Source>
+              <Value>=First(Fields!ImgSignatureMng.Value, "dsForm")</Value>
+              <MIMEType>image/png</MIMEType>
+              <Sizing>Fit</Sizing>
+              <Top>0.79167in</Top>
+              <Left>5.28723in</Left>
+              <Height>0.38715in</Height>
+              <Width>1.65656in</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
           </ReportItems>
           <Style>
             <Border>
@@ -1475,12 +1511,15 @@
             </Border>
           </Style>
         </PageFooter>
-        <PageHeight>11.69in</PageHeight>
-        <PageWidth>8.27in</PageWidth>
-        <LeftMargin>0.16in</LeftMargin>
-        <RightMargin>0.16in</RightMargin>
-        <TopMargin>0.16in</TopMargin>
-        <BottomMargin>0.16in</BottomMargin>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>21cm</PageWidth>
+        <InteractiveHeight>29cm</InteractiveHeight>
+        <InteractiveWidth>20cm</InteractiveWidth>
+        <LeftMargin>1cm</LeftMargin>
+        <RightMargin>1cm</RightMargin>
+        <TopMargin>0.3cm</TopMargin>
+        <BottomMargin>0.3cm</BottomMargin>
+        <ColumnSpacing>1.27cm</ColumnSpacing>
         <Style />
       </Page>
     </ReportSection>
@@ -1522,6 +1561,6 @@ ck2tY0qKAgLB7r/9tXjXzrepvCDANs+/e5na3XWqbfPyroaXo+2tFAoUbv+VKyuzz17Y5Nfpso2N913K
 70N9klDCOdl0cwy+FxQ82Qxn9Y7iZTeH8SoofJGAawteHr9qadW5quKc7sk8pHNWCNEAkcBZTKECgVrkst5bFq9Awh3AFSwSuI52XmlANMG9JnCyIeywsTOhwO/6X3YNONfgVEPBw3sLem+Eoixp35YSyaWpXh4/L4UQiWgCgWZmYJwoiSUQgBYJxEEoVCYCRBPcayJ7WJTTa7G7MfpFFb1nAhR86N4IC0ryuif79IeDEUIc0M3M0Ki+MFggtNMayWGlfkwCgkHRAPSLp+DNMORkXEoKQCUT6HJ544Ml+Vl9M7E3AsAIYZKA0xrJYaUuIAHBqPiaQK1Bb4QB8eDNMKDHBc45OOaTfRmXKGkvBHC2dCZck5ulDozwpSJQq6DorGyEEYu0n8XsdXuFx9p0W2nvO1WBwqc/KCulSHshsLlsF8YymsiaLe3vZTZhfAQGCuYpYqBghMBAwQiBgYIRAgMFIwQGEhbr/wHtG7aKwRyHDwAAAABJRU5ErkJggg==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
-  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>7d5b74d2-904d-46a2-a633-e63d71825795</rd:ReportID>
 </Report>

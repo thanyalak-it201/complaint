@@ -4,8 +4,8 @@
 }
 
 <div class="container">
-    <div class="main">
-        <div class="padding">
+    <div class="main1">
+        <div class="padding1">
             <embed id="pdfViewer" src="data:application/pdf;base64,@ViewBag.PDFData" width="100%" height="600px"/>
                 <form method="post" asp-controller="Complaint" asp-action="UpdateReport" enctype="multipart/form-data">
                     <input type="hidden" asp-for="FromId" name="Id" value="@ViewBag.Id" readonly />

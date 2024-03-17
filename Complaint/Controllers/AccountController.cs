@@ -95,7 +95,7 @@ namespace Complaint.Controllers
 
                         // ตั้งค่าคุกกี้และเปลี่ยนเส้นทางไปที่หน้า Index ของ Complaint Controller
                         await SetCookie(model, Users); // เรียกใช้เมธอด SetCookie โดยส่งข้อมูล model,Users ไปด้วย
-                        return RedirectToAction(nameof(Home), "Complaint"); //เปลี่ยนเส้นทางไปที่หน้า Index ของ Complaint Controller
+                        return RedirectToAction(nameof(Home), "Complaint"); //เปลี่ยนเส้นทางไปที่หน้า Home ของ Complaint Controller
                 }
                }
             // ถ้าข้อมูลจากแบบฟอร์มไม่ถูกต้อง, กลับไปที่หน้าแบบฟอร์ม
@@ -114,7 +114,7 @@ namespace Complaint.Controllers
                         new CookieOptions { Expires = DateTimeOffset.UtcNow.AddDays(30) } //กำหนดให้ Cookie มีอายุ (Expires) 30 วันนับจากปัจจุบัน
                     );
 
-                return RedirectToAction(nameof(Home), "Complaint"); //เปลี่ยนเส้นทางไปที่หน้า Index ของ Complaint Controller
+                return RedirectToAction(nameof(Home), "Complaint"); //เปลี่ยนเส้นทางไปที่หน้า Home ของ Complaint Controller
             }
 
             return View("Home");

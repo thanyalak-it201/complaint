@@ -57,22 +57,22 @@ namespace Complaint.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateF(Complain.Models.User obj, IFormFile profileImage, IFormFile signatureImage)
+        public IActionResult CreateF(Complain.Models.User obj, IFormFile file)
         {
             obj.StatusUsId = "0";
 
             var profileImagePath = Path.Combine("img", "Profile", "imgProfile.jpg");
             obj.ImgProfile = profileImagePath;
 
-            if (signatureImage != null && signatureImage.Length > 0)
+            if (file != null && file.Length > 0)
             {
-                var signatureFileName = Path.GetFileNameWithoutExtension(signatureImage.FileName);
-                var signatureFileExtension = Path.GetExtension(signatureImage.FileName);
+                var signatureFileName = Path.GetFileNameWithoutExtension(file.FileName);
+                var signatureFileExtension = Path.GetExtension(file.FileName);
                 var signatureImagePath = Path.Combine("wwwroot", "img", "Signature", $"{signatureFileName}{signatureFileExtension}");
 
                 using (var signatureStream = new FileStream(signatureImagePath, FileMode.Create))
                 {
-                    signatureImage.CopyTo(signatureStream);
+                    file.CopyTo(signatureStream);
                 }
 
                 obj.ImgSignature = Path.Combine("img", "Signature", $"{signatureFileName}{signatureFileExtension}");

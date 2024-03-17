@@ -128,47 +128,5 @@
       </Template>
     </Templates>
     <AttributeAssemblies />
-    <UpdateFromDatabaseExcludes>
-      <Exclude Name="Problem_Id" Table="dbo.Problem" Type="Column" />
-      <Exclude Name="Problem_name" Table="dbo.Problem" Type="Column" />
-      <Exclude Name="PK_Problem" Table="dbo.Problem" Type="Constraint" />
-      <Exclude Name="Costomer_Id" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Costomer_name" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Product_Id" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Product_name" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Telephone" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Address" Table="dbo.VCostomer" Type="Column" />
-      <Exclude Name="Id" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="Emp_Id" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="Emp_name" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="department_Id" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="department_name" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="section_Id" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="section_name" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="position_Id" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="position_name" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="User_Id" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="email" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="password" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="DateLogin" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="Role_Id" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="Emp_department" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="Emp_section" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="Emp_position" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="User_name" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="Role_name" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="department_name" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="section_name" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="position_name" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="StatusUs_Id" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="StatusUS_name" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="ImgProfile" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="ImgSignature" Table="dbo.VUser" Type="Column" />
-      <Exclude Name="Problem_name" Table="dbo.Problem" Type="Column" />
-      <Exclude Name="PK_VCostomer" Table="dbo.VCostomer" Type="Constraint" />
-      <Exclude Name="Id" Table="dbo.VEmployee" Type="Column" />
-      <Exclude Name="PK_VEmployee" Table="dbo.VEmployee" Type="Constraint" />
-      <Exclude Name="PK_VUser" Table="dbo.VUser" Type="Constraint" />
-    </UpdateFromDatabaseExcludes>
   </ModelSettings>
 </EntityDeveloper>

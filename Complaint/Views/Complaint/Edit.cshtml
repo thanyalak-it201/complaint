@@ -9,7 +9,7 @@
     <div>
         <form method="post" asp-controller="Complaint" asp-action="Update" enctype="multipart/form-data">
             <input type="hidden" asp-for="StatusId" value="0"/>
-            <input type="text" asp-for="FromId" class="form-control rounded-pill" disabled/>
+                <input type="hidden" asp-for="FromId" />
             <div id="RadioButtonGroup" class=" col-md-12" role="group" aria-label="Basic checkbox toggle button group">
                 @Html.RadioButton("TypeId", 1)
                 <label>เสนอแนะ</label>
