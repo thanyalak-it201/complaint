@@ -29,7 +29,7 @@
                                 var loggedInRoles = User.GetLoggedInRole();
                             }
 
-                            @if (loggedInRoles.Contains("1") || loggedInRoles.Contains("2"))
+                            @if (loggedInRoles.Contains("1"))
                             {
                                 <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">No.</th>
                                 <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">ID</th>
@@ -42,6 +42,20 @@
                                 <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">แก้ไข</th>
                                 <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">ลบ</th>
                                 <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">Print</th>
+                            }
+                            @if (loggedInRoles.Contains("2"))
+                            {
+                                <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">No.</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">ID</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">วันที่</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 25%;">เรื่อง</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 13%;">ชื่อลูกค้า</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 15%;">ปัญหาที่พบ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">Lot</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">สถานะ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">แก้ไข</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">ลบ</th>
+                                
                             }
                             @if (loggedInRoles.Contains("3"))
                             {
@@ -65,7 +79,7 @@
                         {
                             Count++;
                             <tr class="bg-blue">
-                                @if (loggedInRoles.Contains("1") || loggedInRoles.Contains("2"))
+                                @if (loggedInRoles.Contains("1"))
                                 {
                                     <td class="pt-3 text-s text-center" style="background : white">
                                         @Count.
@@ -129,6 +143,68 @@
                                     <td class="pt-3 text-s text-center" style="background : white">
                                         <a id="btnPrint" class="btn btn-success" target="_blank" asp-controller="Complaint" asp-action="PrintReport" class="select-button" asp-route-id="@item.FromId">
                                             Print</a>
+                                    </td>
+                                }
+                                @if (loggedInRoles.Contains("2"))
+                                {
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @Count.
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromId
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromData
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.CostomerName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @if (item.ProblemId == null)
+                                        {
+                                            @item.ProblemOthet
+                                        }
+                                        else
+                                        {
+                                            @item.ProblemName
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.Lot
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @switch (item.StatusName)
+                                        {
+                                            case "รออนุมัติ":
+                                                <img src="~/img/รออนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "อนุมัติ":
+                                                <img src="~/img/อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ไม่อนุมัติ":
+                                                <img src="~/img/ไม่อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ยกเลิก":
+                                                <img src="~/img/ยกเลิก.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            default:
+                                                // กรณีที่ไม่ตรงกับ case ใด ๆ
+                                                <span>ไม่ทราบสถานะ</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a asp-controller="Complaint" asp-action="Edit" asp-route-id="@item.FromId">
+                                            <img src="~/img/แก้ไข.png" style="width: 60%; height: 60%;" />
+                                        </a>
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a asp-controller="Complaint" asp-action="Delete" asp-route-id="@item.FromId">
+                                            <img src="~/img/ลบ.png" style="width: 80%; height: 80%;" />
+                                        </a>
                                     </td>
                                 }
 
