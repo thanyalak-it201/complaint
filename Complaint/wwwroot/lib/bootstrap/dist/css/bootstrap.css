@@ -2996,6 +2996,7 @@ textarea.form-control-lg {
   color: #fff;
   background-color: #6c757d;
   border-color: #6c757d;
+  border-radius : 90rem;
 }
 .btn-secondary:hover {
   color: #fff;
@@ -4449,8 +4450,7 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border: 1px solid rgba(0, 0, 0, 0);
 }
 .card > hr {
   margin-right: 0;

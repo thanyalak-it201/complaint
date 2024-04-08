@@ -1,0 +1,144 @@
+﻿@model Complain.Models.VForm;
+@using SetCookie
+
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+}
+@{
+    ViewData["Title"] = "Home Page";
+
+    var userIdCookie = Context.Request.Cookies["UserName"];
+    // ตรวจสอบว่าคุกกี้ "UserId" มีค่าหรือไม่
+    var hasUserIdCookie = !string.IsNullOrEmpty(userIdCookie);
+}
+@{
+    var problemsData = (Dashboard)ViewBag.ProblemsData;
+    var labels = problemsData?.ListProblem?.Select(p => p.NameProblem).ToList();
+    var counts = problemsData?.ListProblem?.Select(p => p.CountProblem).ToList();
+}
+
+
+@if (hasUserIdCookie)
+{
+    <div class="container">
+        <div class="padding">
+            <h2>Complain</h2>
+            <div class="main">
+                <!--แสดง สถานะ-->
+                <div class="cardBox">
+                    <div class="card">
+                        <div class="row">
+                            <div>
+                                <div class="numbers">@ViewBag.StatusId0</div>
+                                <div class="cardName">รออนุมัติ</div>
+                            </div>
+
+                            <div class="iconBx">
+                                <ion-icon name="time-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="row">
+                            <div>
+                                <div class="numbers">@ViewBag.StatusId1</div>
+                                <div class="cardName">อนุมัติ</div>
+                            </div>
+
+                            <div class="iconBx">
+                                <ion-icon name="checkmark-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="row">
+                            <div>
+                                <div class="numbers">@ViewBag.StatusId2</div>
+                                <div class="cardName">ไม่อนุมัติ</div>
+                            </div>
+
+                            <div class="iconBx">
+                                <ion-icon name="close-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="row">
+                            <div>
+                                <div class="numbers">@ViewBag.StatusId3</div>
+                                <div class="cardName">ยกเลิก</div>
+                            </div>
+
+                            <div class="iconBx">
+                                <ion-icon name="trash-bin-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--แสดง สถานะ-->
+
+                <!-- ================ Add Charts JS ================= -->
+                <div class="chartsBx">
+                    <div class="chart"><canvas id="myChart"></canvas> </div>
+                    <div class="chart"><canvas id="chart-2"></canvas> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <p>ไม่มีข้อมูลจากคุกกี้</p>
+}
+
+@section Scripts
+{
+    <!-- =========== Scripts =========  -->
+    <script src="~/js/main.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- ======= Charts JS ====== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    @* <script src="~/js/chartsjs.js"></script> *@
+    <script>
+        
+        // ============================================ Chart ==============================================
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: @Html.Raw(Json.Serialize(labels)),
+                datasets: [{
+                    label: 'Problem Counts',
+                    data: @Html.Raw(Json.Serialize(counts)),
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.5)',
+                        'rgba(54, 162, 235, 0.5)',
+                        'rgba(255, 206, 86, 0.5)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+            }
+        });
+    </script>
+}
+    
+
+
+    
+    

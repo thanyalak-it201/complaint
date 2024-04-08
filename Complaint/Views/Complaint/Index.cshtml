@@ -1,10 +1,310 @@
-﻿@model From;
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Complain.Models.VForm;
+@using SetCookie
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+
+}
 @{
-    ViewData["Title"] = "ComplaintPage";
+    ViewData["Title"] = "IndexPage";
+}
+
+@{
+    var userIdCookie = Context.Request.Cookies["UserName"];
+    // ตรวจสอบว่าคุกกี้ "UserId" มีค่าหรือไม่
+    var hasUserIdCookie = !string.IsNullOrEmpty(userIdCookie);
 }
 
 
+@if (hasUserIdCookie)
+{
+    <div class="container">
+        <div class="main">
+            <div class="padding">
+            <div>รายการแจ้งข้อร้องเรียนจากลูกค้า</div>
+            <br />
+                <table id="myTable" class="display" style="width: 100%; padding: 10px">
+                    <thead>
+                        <tr>
+                            @{
+                                var loggedInRoles = User.GetLoggedInRole();
+                            }
 
+                            @if (loggedInRoles.Contains("1"))
+                            {
+                                <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">No.</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">ID</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">วันที่</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 25%;">เรื่อง</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 13%;">ชื่อลูกค้า</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 15%;">ปัญหาที่พบ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">Lot</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">สถานะ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">แก้ไข</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">ลบ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">Print</th>
+                            }
+                            @if (loggedInRoles.Contains("2"))
+                            {
+                                <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">No.</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">ID</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">วันที่</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 25%;">เรื่อง</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 13%;">ชื่อลูกค้า</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 15%;">ปัญหาที่พบ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">Lot</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">สถานะ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">แก้ไข</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">ลบ</th>
+                                
+                            }
+                            @if (loggedInRoles.Contains("3"))
+                            {
+                                <th scope="col" class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">No.</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 5%;">ID</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">วันที่</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 25%;">เรื่อง</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 13%;">ชื่อลูกค้า</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 15%;">ปัญหาที่พบ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">Lot</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class" style="width: 10%;">สถานะ</th>
+                                <th scope="col" class="text-uppercase text-secondary text-xs font-weight-bolder opacity-7 text-center your-class">Print</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            int Count = 0;
+                        }
+                        @foreach (var item in ViewBag.VForm)
+                        {
+                            Count++;
+                            <tr class="bg-blue">
+                                @if (loggedInRoles.Contains("1"))
+                                {
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @Count.
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromId
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromData
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.CostomerName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @if (item.ProblemId == null)
+                                        {
+                                            @item.ProblemOthet
+                                        }
+                                        else
+                                        {
+                                            @item.ProblemName
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.Lot
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @switch (item.StatusName)
+                                        {
+                                            case "รออนุมัติ":
+                                                <img src="~/img/รออนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "อนุมัติ":
+                                                <img src="~/img/อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ไม่อนุมัติ":
+                                                <img src="~/img/ไม่อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ยกเลิก":
+                                                <img src="~/img/ยกเลิก.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            default:
+                                                // กรณีที่ไม่ตรงกับ case ใด ๆ
+                                                <span>ไม่ทราบสถานะ</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a asp-controller="Complaint" asp-action="Edit" asp-route-id="@item.FromId">
+                                            <img src="~/img/แก้ไข.png" style="width: 60%; height: 60%;" />
+                                        </a>
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a asp-controller="Complaint" asp-action="Delete" asp-route-id="@item.FromId">
+                                            <img src="~/img/ลบ.png" style="width: 80%; height: 80%;" />
+                                        </a>
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a id="btnPrint" class="btn btn-success" target="_blank" asp-controller="Complaint" asp-action="PrintReport" class="select-button" asp-route-id="@item.FromId">
+                                            Print</a>
+                                    </td>
+                                }
+                                @if (loggedInRoles.Contains("2"))
+                                {
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @Count.
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromId
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromData
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.CostomerName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @if (item.ProblemId == null)
+                                        {
+                                            @item.ProblemOthet
+                                        }
+                                        else
+                                        {
+                                            @item.ProblemName
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.Lot
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @switch (item.StatusName)
+                                        {
+                                            case "รออนุมัติ":
+                                                <img src="~/img/รออนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "อนุมัติ":
+                                                <img src="~/img/อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ไม่อนุมัติ":
+                                                <img src="~/img/ไม่อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ยกเลิก":
+                                                <img src="~/img/ยกเลิก.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            default:
+                                                // กรณีที่ไม่ตรงกับ case ใด ๆ
+                                                <span>ไม่ทราบสถานะ</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a asp-controller="Complaint" asp-action="Edit" asp-route-id="@item.FromId">
+                                            <img src="~/img/แก้ไข.png" style="width: 60%; height: 60%;" />
+                                        </a>
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a asp-controller="Complaint" asp-action="Delete" asp-route-id="@item.FromId">
+                                            <img src="~/img/ลบ.png" style="width: 80%; height: 80%;" />
+                                        </a>
+                                    </td>
+                                }
+
+                                @if (loggedInRoles.Contains("3"))
+                                {
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @Count.
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromId
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromData
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.FromName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.CostomerName
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @if (item.ProblemId == null)
+                                        {
+                                            @item.ProblemOthet
+                                        }
+                                        else
+                                        {
+                                            @item.ProblemName
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @item.Lot
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        @switch (item.StatusName)
+                                        {
+                                            case "รออนุมัติ":
+                                                <img src="~/img/รออนุมัติ.png" style="width: 80%; height: 80%;" />
+                                                break;
+                                            case "อนุมัติ":
+                                                <img src="~/img/อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ไม่อนุมัติ":
+                                                <img src="~/img/ไม่อนุมัติ.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            case "ยกเลิก":
+                                                <img src="~/img/ยกเลิก.png" style="width: 100%; height: 100%;" />
+                                                break;
+                                            default:
+                                                // กรณีที่ไม่ตรงกับ case ใด ๆ
+                                                <span>ไม่ทราบสถานะ</span>
+                                                break;
+                                        }
+                                    </td>
+                                    <td class="pt-3 text-s text-center" style="background : white">
+                                        <a id="btnPrint" class="btn btn-success" target="_blank" asp-controller="Complaint" asp-action="PrintReport" class="select-button" asp-route-id="@item.FromId">
+                                            Print
+                                        </a>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>         
+        </div>
+    </div>
+}
+else
+{
+    <p>ไม่มีข้อมูลจากคุกกี้</p>
+}
+
+@section Scripts
+{
+    <!-- =========== Scripts =========  -->
+    <script src="assets/js/main.js"></script>
+
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                searching: true,
+                columnDefs: [
+                    {
+                        targets: [2, 6],
+                        render: function (data, type, row) {
+                            // แปลงวันที่ให้เป็นรูปแบบของ DataTables (เฉพาะวันที่)
+                            return new Date(data).toLocaleDateString();
+                        }
+                    }
+                ],
+                
+            });
+        });
+
+    </script>
+}
